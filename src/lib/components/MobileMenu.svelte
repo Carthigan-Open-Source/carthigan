@@ -70,11 +70,13 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<!-- Header/Navigation Bar -->
+<!-- Header/Navigation Bar - spans only left half on desktop -->
 <header
-  class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md"
+  class="fixed top-0 left-0 md:right-auto md:w-1/2 right-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md md:rounded-br-2xl"
 >
-  <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+  <div
+    class="max-w-[1400px] mx-auto flex items-center justify-between md:justify-end"
+  >
     <!-- Logo - only visible on mobile -->
     <a href="/" class="group flex items-center gap-3 md:hidden">
       <img

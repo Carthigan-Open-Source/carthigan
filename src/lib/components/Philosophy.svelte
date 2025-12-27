@@ -6,8 +6,8 @@
   let sectionRef: HTMLElement;
   let headingRef: HTMLElement;
   let underlineSvgRef: SVGPathElement;
-  let scribbleSvgRef: SVGPathElement;
-  let arrowSvgRef: SVGPathElement;
+  let scribbleArrowRef: SVGPathElement;
+  let arrowHeadRef: SVGPathElement;
   let paragraphsRef: HTMLElement;
 
   onMount(() => {
@@ -17,7 +17,7 @@
     gsap.set(headingRef, { opacity: 0 });
 
     // Set up SVG stroke animation
-    const svgPaths = [underlineSvgRef, scribbleSvgRef, arrowSvgRef].filter(
+    const svgPaths = [underlineSvgRef, scribbleArrowRef, arrowHeadRef].filter(
       Boolean
     );
     svgPaths.forEach((path) => {
@@ -76,29 +76,29 @@
       "-=0.5"
     );
 
-    // Decorative scribble draws after paragraphs
-    if (scribbleSvgRef) {
+    // Scribble arrow draws - takes weird path then points to paragraphs
+    if (scribbleArrowRef) {
       tl.to(
-        scribbleSvgRef,
+        scribbleArrowRef,
         {
           strokeDashoffset: 0,
-          duration: 1.5,
+          duration: 2,
           ease: "power1.inOut",
         },
         "-=0.3"
       );
     }
 
-    // Arrow draws last
-    if (arrowSvgRef) {
+    // Arrow head draws last
+    if (arrowHeadRef) {
       tl.to(
-        arrowSvgRef,
+        arrowHeadRef,
         {
           strokeDashoffset: 0,
-          duration: 1,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "-=0.8"
+        "-=0.3"
       );
     }
 
@@ -110,46 +110,45 @@
 
 <section
   bind:this={sectionRef}
-  class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-carthigan-charcoal/10 relative overflow-hidden"
+  class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-carthigan-charcoal/10 relative overflow-visible"
 >
-  <!-- Decorative hand-drawn scribble (like in the reference image) -->
+  <!-- Decorative scribble arrow that loops around then points to the paragraphs -->
   <svg
-    class="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-32 md:w-48 h-64 md:h-80 pointer-events-none"
-    viewBox="0 0 150 300"
+    class="absolute left-0 md:left-8 top-32 w-full h-[400px] md:h-[500px] pointer-events-none z-0"
+    viewBox="0 0 800 400"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
   >
+    <!-- Main scribble path - starts from bottom left, loops around crazily, then points right to the paragraphs -->
     <path
-      bind:this={scribbleSvgRef}
-      d="M75 20 
-         C 120 40, 130 80, 90 100 
-         C 50 120, 30 140, 60 170 
-         C 90 200, 40 220, 50 250 
-         C 60 280, 100 260, 80 290"
+      bind:this={scribbleArrowRef}
+      d="M 30 350
+         C 80 380, 60 320, 40 280
+         C 20 240, 80 220, 100 260
+         C 120 300, 60 280, 80 240
+         C 100 200, 140 220, 120 180
+         C 100 140, 160 120, 180 160
+         C 200 200, 150 180, 170 140
+         C 190 100, 240 130, 220 90
+         C 200 50, 280 40, 300 80
+         C 320 120, 270 100, 290 140
+         C 310 180, 350 120, 380 150
+         C 410 180, 390 130, 420 160
+         C 450 190, 480 140, 520 170"
       stroke="#E85D3F"
-      stroke-width="3"
+      stroke-width="3.5"
       stroke-linecap="round"
       stroke-linejoin="round"
       fill="none"
       style="opacity: 0;"
     />
-  </svg>
-
-  <!-- Decorative arrow pointing to content -->
-  <svg
-    class="absolute right-12 md:right-24 bottom-1/3 w-24 md:w-32 h-16 md:h-24 pointer-events-none hidden md:block"
-    viewBox="0 0 120 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+    <!-- Arrow head pointing to paragraphs -->
     <path
-      bind:this={arrowSvgRef}
-      d="M10 60 
-         C 30 70, 50 50, 70 55 
-         C 90 60, 100 40, 105 30
-         M 95 25 L 105 30 L 100 40"
+      bind:this={arrowHeadRef}
+      d="M 500 185 L 530 170 L 510 150"
       stroke="#E85D3F"
-      stroke-width="3"
+      stroke-width="3.5"
       stroke-linecap="round"
       stroke-linejoin="round"
       fill="none"

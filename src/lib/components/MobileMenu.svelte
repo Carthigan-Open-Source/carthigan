@@ -88,8 +88,8 @@
       >
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8">
+    <!-- Desktop Navigation - stays on the right -->
+    <nav class="hidden md:flex items-center gap-8 ml-auto">
       <a
         href="/about"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"

@@ -76,6 +76,7 @@
 
     try {
       if (!email) throw new Error("Email is required");
+      if (!db) throw new Error("Database not initialized");
 
       await addDoc(collection(db, "waitlist"), {
         email,

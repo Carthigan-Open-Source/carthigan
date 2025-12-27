@@ -12,7 +12,7 @@
       document.body.style.overflow = "hidden";
       // Animate in after next tick
       requestAnimationFrame(() => {
-        if (overlayRef && navRef) {
+        if (overlayRef && navRef && gsap) {
           // Animate overlay
           gsap.fromTo(
             overlayRef,
@@ -28,140 +28,141 @@
             {
               opacity: 1,
               y: 0,
-              duration: 0.4,
-              stagger: 0.05,
-              ease: ANIMATION_CONFIG.ease.smooth,
-              delay: 0.1,
-            }
-          );
-
-          // Animate footer elements
-          const footerEls = navRef.querySelectorAll(".menu-footer");
-          gsap.fromTo(
-            footerEls,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.4,
-              delay: 0.4,
-              ease: ANIMATION_CONFIG.ease.smooth,
+              duration: 0.5,
+              stagger: 0.08,
+              ease: ANIMATION_CONFIG.ease.snap,
             }
           );
         }
       });
     } else {
       document.body.style.overflow = "";
+      // Animate out
+      if (overlayRef && gsap) {
+        gsap.to(overlayRef, {
+          opacity: 0,
+          duration: 0.2,
+          ease: ANIMATION_CONFIG.ease.smoothIn,
+        });
+      }
     }
   }
 
   function close() {
-    if (overlayRef) {
-      gsap.to(overlayRef, {
-        opacity: 0,
-        duration: 0.2,
-        ease: ANIMATION_CONFIG.ease.smoothIn,
-        onComplete: () => {
-          isOpen = false;
-          document.body.style.overflow = "";
-        },
-      });
-    } else {
-      isOpen = false;
-      document.body.style.overflow = "";
+    if (isOpen) {
+      toggle();
     }
   }
 
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/gandalingo", label: "Gandalingo" },
-    { href: "/studio", label: "Studio" },
-    { href: "/developers", label: "Developers" },
-    { href: "/research", label: "Research" },
-    { href: "/health-monitor", label: "Health Monitor" },
-    { href: "/about", label: "About" },
-  ];
+  // Close mobile menu on route change
+  $effect(() => {
+    $page.url.pathname;
+    close();
+  });
+
+  // Close menu on escape key
+  function handleKeydown(e: KeyboardEvent) {
+    if (e.key === "Escape" && isOpen) {
+      close();
+    }
+  }
 </script>
 
-<!-- Mobile Menu Button (Visible only on small screens) -->
-<button
-  onclick={toggle}
-  class="fixed top-6 right-6 z-[60] p-2 text-carthigan-charcoal hover:bg-carthigan-charcoal/5 rounded-full md:hidden transition-transform hover:scale-110"
-  aria-label="Toggle Menu"
->
-  {#if isOpen}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      ><line x1="18" y1="6" x2="6" y2="18"></line><line
-        x1="6"
-        y1="6"
-        x2="18"
-        y2="18"
-      ></line></svg
-    >
-  {:else}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      ><line x1="3" y1="12" x2="21" y2="12"></line><line
-        x1="3"
-        y1="6"
-        x2="21"
-        y2="6"
-      ></line><line x1="3" y1="18" x2="21" y2="18"></line></svg
-    >
-  {/if}
-</button>
+<svelte:window onkeydown={handleKeydown} />
 
-<!-- Full Screen Overlay -->
+<!-- Header/Navigation Bar -->
+<header
+  class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md"
+>
+  <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="group flex items-center gap-3">
+      <img
+        src="/favicon.svg"
+        alt="Carthigan Logo"
+        class="w-8 h-8 transition-transform group-hover:rotate-12"
+      />
+      <span
+        class="font-space-grotesk text-lg font-semibold tracking-tight text-carthigan-charcoal"
+        >Carthigan</span
+      >
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a
+        href="/about"
+        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
+        >About</a
+      >
+      <a
+        href="/research"
+        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
+        >Research</a
+      >
+      <a
+        href="/developers"
+        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
+        >Developers</a
+      >
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      onclick={toggle}
+      class="md:hidden w-10 h-10 flex items-center justify-center"
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+    >
+      <div class="relative w-6 h-5">
+        <span
+          class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+            ? 'top-2 rotate-45'
+            : 'top-0 rotate-0'}"
+        ></span>
+        <span
+          class="absolute left-0 top-2 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+            ? 'opacity-0'
+            : 'opacity-100'}"
+        ></span>
+        <span
+          class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+            ? 'top-2 -rotate-45'
+            : 'top-4 rotate-0'}"
+        ></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
 {#if isOpen}
   <div
     bind:this={overlayRef}
-    class="fixed inset-0 z-[50] bg-carthigan-cream flex flex-col justify-center items-center md:hidden"
-    role="dialog"
-    aria-modal="true"
+    class="fixed inset-0 z-40 bg-carthigan-cream md:hidden"
     style="opacity: 0;"
   >
-    <nav bind:this={navRef} class="flex flex-col items-center gap-8">
-      {#each links as link}
-        <a
-          href={link.href}
-          onclick={close}
-          class="text-3xl font-display font-bold text-carthigan-charcoal hover:opacity-50 transition-opacity {$page
-            .url.pathname === link.href
-            ? 'opacity-100'
-            : 'opacity-60'}"
-          style="opacity: 0;"
-        >
-          {link.label}
-        </a>
-      {/each}
-
-      <div
-        class="menu-footer mt-12 w-12 h-1 bg-carthigan-charcoal/10"
-        style="opacity: 0;"
-      ></div>
-
-      <div
-        class="menu-footer text-xs font-bold uppercase tracking-widest text-carthigan-charcoal/40"
-        style="opacity: 0;"
+    <nav
+      bind:this={navRef}
+      class="flex flex-col items-center justify-center h-full gap-8"
+    >
+      <a
+        href="/about"
+        onclick={close}
+        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        >About</a
       >
-        Kampala • Earth
-      </div>
+      <a
+        href="/research"
+        onclick={close}
+        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        >Research</a
+      >
+      <a
+        href="/developers"
+        onclick={close}
+        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        >Developers</a
+      >
     </nav>
   </div>
 {/if}

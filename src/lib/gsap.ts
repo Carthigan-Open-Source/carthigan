@@ -2,17 +2,11 @@
  * GSAP Animation Utilities for Carthigan
  * Centralized animation configuration and helper functions
  * 
- * NOTE: This module should only be imported in browser context (onMount, etc.)
+ * SSR-Safe: Exports no-op functions when running on server
  */
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { browser } from '$app/environment';
 
-// Register plugins only in browser
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-// Default animation configurations
+// Default animation configurations (safe to use on server)
 export const ANIMATION_CONFIG = {
   duration: {
     fast: 0.3,
@@ -35,6 +29,22 @@ export const ANIMATION_CONFIG = {
   }
 };
 
+// SSR-safe gsap and ScrollTrigger
+let gsap: typeof import('gsap').gsap;
+let ScrollTrigger: typeof import('gsap/ScrollTrigger').ScrollTrigger;
+
+// Only load GSAP in browser
+if (browser) {
+  const gsapModule = await import('gsap');
+  const scrollTriggerModule = await import('gsap/ScrollTrigger');
+  gsap = gsapModule.gsap;
+  ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+// Re-export (will be undefined on server, but components use these inside onMount)
+export { gsap, ScrollTrigger };
+
 /**
  * Fade in and slide up animation
  */
@@ -48,6 +58,8 @@ export function fadeInUp(
     ease?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.normal,
     delay = 0,
@@ -76,6 +88,8 @@ export function fadeInScale(
     ease?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.normal,
     delay = 0,
@@ -105,6 +119,8 @@ export function slideIn(
     ease?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.normal,
     delay = 0,
@@ -113,8 +129,8 @@ export function slideIn(
     ease = ANIMATION_CONFIG.ease.smooth
   } = options;
 
-  const fromVars: gsap.TweenVars = { opacity: 0 };
-  const toVars: gsap.TweenVars = { opacity: 1, duration, delay, stagger, ease };
+  const fromVars: Record<string, unknown> = { opacity: 0 };
+  const toVars: Record<string, unknown> = { opacity: 1, duration, delay, stagger, ease };
 
   switch (direction) {
     case 'left':
@@ -153,6 +169,8 @@ export function scrollReveal(
     once?: boolean;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     animation = 'fadeInUp',
     duration = ANIMATION_CONFIG.duration.normal,
@@ -220,6 +238,8 @@ export function staggerReveal(
     ease?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.normal,
     stagger = ANIMATION_CONFIG.stagger.normal,
@@ -250,46 +270,6 @@ export function staggerReveal(
 }
 
 /**
- * Text split reveal animation (word by word)
- */
-export function splitTextReveal(
-  element: Element | string,
-  options: {
-    duration?: number;
-    stagger?: number;
-    y?: number;
-    delay?: number;
-    ease?: string;
-  } = {}
-) {
-  const {
-    duration = ANIMATION_CONFIG.duration.fast,
-    stagger = 0.03,
-    y = 20,
-    delay = 0,
-    ease = ANIMATION_CONFIG.ease.smooth
-  } = options;
-
-  const el = typeof element === 'string' ? document.querySelector(element) : element;
-  if (!el || !(el instanceof HTMLElement)) return null;
-
-  const text = el.textContent || '';
-  const words = text.split(' ');
-  
-  el.innerHTML = words
-    .map(word => `<span class="gsap-word" style="display: inline-block; overflow: hidden;"><span style="display: inline-block;">${word}</span></span>`)
-    .join(' ');
-
-  const wordSpans = el.querySelectorAll('.gsap-word > span');
-
-  return gsap.fromTo(
-    wordSpans,
-    { y, opacity: 0 },
-    { y: 0, opacity: 1, duration, stagger, delay, ease }
-  );
-}
-
-/**
  * Parallax effect on scroll
  */
 export function parallax(
@@ -300,6 +280,8 @@ export function parallax(
     end?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     speed = 0.5,
     start = 'top bottom',
@@ -329,6 +311,8 @@ export function lineGrow(
     direction?: 'left' | 'center' | 'right';
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.slow,
     delay = 0,
@@ -357,6 +341,8 @@ export function countUp(
     suffix?: string;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     duration = ANIMATION_CONFIG.duration.slow,
     delay = 0,
@@ -391,6 +377,8 @@ export function float(
     rotation?: number;
   } = {}
 ) {
+  if (!browser || !gsap) return null;
+  
   const {
     y = 10,
     duration = 3,
@@ -411,6 +399,8 @@ export function float(
  * Magnetic hover effect
  */
 export function magneticHover(element: HTMLElement, strength: number = 0.3) {
+  if (!browser || !gsap) return () => {};
+  
   const handleMouseMove = (e: MouseEvent) => {
     const rect = element.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -446,7 +436,7 @@ export function magneticHover(element: HTMLElement, strength: number = 0.3) {
  * Kill all ScrollTrigger instances (cleanup)
  */
 export function killAllScrollTriggers() {
-  if (typeof window !== 'undefined') {
+  if (browser && ScrollTrigger) {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }
 }
@@ -455,10 +445,7 @@ export function killAllScrollTriggers() {
  * Refresh ScrollTrigger (call after DOM changes)
  */
 export function refreshScrollTrigger() {
-  if (typeof window !== 'undefined') {
+  if (browser && ScrollTrigger) {
     ScrollTrigger.refresh();
   }
 }
-
-// Re-export gsap and ScrollTrigger for direct use
-export { gsap, ScrollTrigger };

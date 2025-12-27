@@ -11,11 +11,8 @@
   // SVG refs for animations
   let heroScribbleRef: SVGPathElement;
   let heroArrowHeadRef: SVGPathElement;
-  let featureScribble1Ref: SVGPathElement;
-  let featureScribble2Ref: SVGPathElement;
   let quoteUnderlineRef: SVGPathElement;
   let heroSectionRef: HTMLElement;
-  let featuresSectionRef: HTMLElement;
   let quoteSectionRef: HTMLElement;
 
   function openWaitlist() {
@@ -29,8 +26,6 @@
     const allPaths = [
       heroScribbleRef,
       heroArrowHeadRef,
-      featureScribble1Ref,
-      featureScribble2Ref,
       quoteUnderlineRef,
     ].filter(Boolean);
     allPaths.forEach((path) => {
@@ -69,37 +64,6 @@
         },
         "-=0.3"
       );
-    }
-
-    // Features section scribbles
-    if (featureScribble1Ref || featureScribble2Ref) {
-      const featuresTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: featuresSectionRef,
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      if (featureScribble1Ref) {
-        featuresTl.to(featureScribble1Ref, {
-          strokeDashoffset: 0,
-          duration: 1.5,
-          ease: "power1.inOut",
-        });
-      }
-
-      if (featureScribble2Ref) {
-        featuresTl.to(
-          featureScribble2Ref,
-          {
-            strokeDashoffset: 0,
-            duration: 1.2,
-            ease: "power1.inOut",
-          },
-          "-=0.8"
-        );
-      }
     }
 
     // Quote underline
@@ -143,45 +107,8 @@
   <!-- Hero Section -->
   <header
     bind:this={heroSectionRef}
-    class="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center overflow-visible"
+    class="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center"
   >
-    <!-- Hand-drawn scribble arrow pointing to "Join the Beta" button -->
-    <svg
-      class="absolute left-4 md:left-0 top-24 md:top-16 w-64 md:w-96 h-80 md:h-96 pointer-events-none -z-10"
-      viewBox="0 0 300 350"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <!-- Loopy scribble that ends pointing down-right toward the button -->
-      <path
-        bind:this={heroScribbleRef}
-        d="M 280 30
-           C 260 60, 300 80, 270 100
-           C 240 120, 290 140, 260 160
-           C 230 180, 200 150, 180 180
-           C 160 210, 200 220, 170 250
-           C 140 280, 120 260, 130 290
-           C 140 320, 100 310, 120 340"
-        stroke="#E85D3F"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        fill="none"
-        style="opacity: 0;"
-      />
-      <!-- Arrow head -->
-      <path
-        bind:this={heroArrowHeadRef}
-        d="M 105 325 L 120 340 L 135 330"
-        stroke="#E85D3F"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        fill="none"
-        style="opacity: 0;"
-      />
-    </svg>
-
     <div class="space-y-8 animate-fade-in-up relative z-10">
       <div
         class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-carthigan-charcoal/10"
@@ -232,6 +159,40 @@
           >
         </div>
       </div>
+
+      <!-- Scribble arrow in empty space below button, pointing toward phone mockup -->
+      <svg
+        class="w-full h-24 mt-4 hidden md:block"
+        viewBox="0 0 400 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          bind:this={heroScribbleRef}
+          d="M 20 60
+             C 60 40, 40 70, 80 50
+             C 120 30, 100 60, 150 40
+             C 200 20, 180 55, 240 35
+             C 300 15, 280 50, 340 30
+             C 360 22, 370 30, 380 25"
+          stroke="#E85D3F"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          style="opacity: 0;"
+        />
+        <path
+          bind:this={heroArrowHeadRef}
+          d="M 365 12 L 385 25 L 368 38"
+          stroke="#E85D3F"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          style="opacity: 0;"
+        />
+      </svg>
     </div>
 
     <div
@@ -248,39 +209,8 @@
   </header>
 
   <!-- Features Section -->
-  <section
-    bind:this={featuresSectionRef}
-    class="py-32 bg-white border-y border-carthigan-charcoal/5 relative overflow-visible"
-  >
-    <!-- Decorative connecting scribbles between feature cards -->
-    <svg
-      class="absolute top-20 left-0 w-full h-32 pointer-events-none hidden md:block -z-10"
-      viewBox="0 0 1200 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-    >
-      <path
-        bind:this={featureScribble1Ref}
-        d="M 200 80 C 280 40, 350 90, 420 50 C 490 10, 550 70, 600 50"
-        stroke="#E85D3F"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        fill="none"
-        style="opacity: 0;"
-      />
-      <path
-        bind:this={featureScribble2Ref}
-        d="M 650 50 C 720 80, 780 20, 850 60 C 920 100, 980 30, 1050 70"
-        stroke="#E85D3F"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        fill="none"
-        style="opacity: 0;"
-      />
-    </svg>
-
-    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+  <section class="py-32 bg-white border-y border-carthigan-charcoal/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
       <div class="grid md:grid-cols-3 gap-12">
         <div class="space-y-4">
           <div
@@ -374,7 +304,7 @@
   <!-- Big Vision Quote -->
   <section
     bind:this={quoteSectionRef}
-    class="py-32 px-6 md:px-12 bg-carthigan-charcoal text-carthigan-cream text-center relative overflow-visible"
+    class="py-32 px-6 md:px-12 bg-carthigan-charcoal text-carthigan-cream text-center"
   >
     <div class="max-w-4xl mx-auto space-y-8">
       <p class="text-3xl md:text-5xl font-display font-bold leading-tight">

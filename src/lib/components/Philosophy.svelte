@@ -76,7 +76,7 @@
       "-=0.5"
     );
 
-    // Scribble arrow draws - takes weird path then points to paragraphs
+    // Decorative scribble draws after paragraphs - positioned in the gap between columns
     if (scribbleArrowRef) {
       tl.to(
         scribbleArrowRef,
@@ -110,53 +110,10 @@
 
 <section
   bind:this={sectionRef}
-  class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-carthigan-charcoal/10 relative overflow-visible"
+  class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-carthigan-charcoal/10 relative"
 >
-  <!-- Decorative scribble arrow that loops around then points to the paragraphs -->
-  <svg
-    class="absolute left-0 md:left-8 top-32 w-full h-[400px] md:h-[500px] pointer-events-none -z-10"
-    viewBox="0 0 800 400"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <!-- Main scribble path - starts from bottom left, loops around crazily, then points right to the paragraphs -->
-    <path
-      bind:this={scribbleArrowRef}
-      d="M 30 350
-         C 80 380, 60 320, 40 280
-         C 20 240, 80 220, 100 260
-         C 120 300, 60 280, 80 240
-         C 100 200, 140 220, 120 180
-         C 100 140, 160 120, 180 160
-         C 200 200, 150 180, 170 140
-         C 190 100, 240 130, 220 90
-         C 200 50, 280 40, 300 80
-         C 320 120, 270 100, 290 140
-         C 310 180, 350 120, 380 150
-         C 410 180, 390 130, 420 160
-         C 450 190, 480 140, 520 170"
-      stroke="#E85D3F"
-      stroke-width="3.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      fill="none"
-      style="opacity: 0;"
-    />
-    <!-- Arrow head pointing to paragraphs -->
-    <path
-      bind:this={arrowHeadRef}
-      d="M 500 185 L 530 170 L 510 150"
-      stroke="#E85D3F"
-      stroke-width="3.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      fill="none"
-      style="opacity: 0;"
-    />
-  </svg>
-
-  <div class="grid md:grid-cols-12 gap-12 items-start relative z-10">
+  <div class="grid md:grid-cols-12 gap-12 items-start relative">
+    <!-- Left column: Heading -->
     <div class="md:col-span-5">
       <h2
         bind:this={headingRef}
@@ -182,7 +139,46 @@
           style="opacity: 0;"
         />
       </svg>
+
+      <!-- Scribble arrow in the space below the heading, pointing right toward paragraphs -->
+      <svg
+        class="w-full h-48 mt-8 hidden md:block"
+        viewBox="0 0 400 180"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Loopy path that stays in the left column space, then points right -->
+        <path
+          bind:this={scribbleArrowRef}
+          d="M 30 20
+             C 80 60, 40 80, 70 100
+             C 100 120, 50 130, 90 140
+             C 130 150, 110 120, 150 130
+             C 190 140, 170 100, 220 110
+             C 270 120, 250 90, 300 100
+             C 350 110, 340 80, 380 90"
+          stroke="#E85D3F"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          style="opacity: 0;"
+        />
+        <!-- Arrow head pointing right -->
+        <path
+          bind:this={arrowHeadRef}
+          d="M 365 75 L 385 90 L 365 105"
+          stroke="#E85D3F"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          style="opacity: 0;"
+        />
+      </svg>
     </div>
+
+    <!-- Right column: Paragraphs -->
     <div
       bind:this={paragraphsRef}
       class="md:col-span-7 space-y-8 text-lg md:text-xl font-light leading-relaxed text-carthigan-charcoal/90"

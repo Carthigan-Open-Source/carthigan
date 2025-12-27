@@ -147,7 +147,7 @@
   >
     <!-- Hand-drawn scribble arrow pointing to "Join the Beta" button -->
     <svg
-      class="absolute left-4 md:left-0 top-24 md:top-16 w-64 md:w-96 h-80 md:h-96 pointer-events-none z-20"
+      class="absolute left-4 md:left-0 top-24 md:top-16 w-64 md:w-96 h-80 md:h-96 pointer-events-none -z-10"
       viewBox="0 0 300 350"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -254,7 +254,7 @@
   >
     <!-- Decorative connecting scribbles between feature cards -->
     <svg
-      class="absolute top-20 left-0 w-full h-32 pointer-events-none hidden md:block"
+      class="absolute top-20 left-0 w-full h-32 pointer-events-none hidden md:block -z-10"
       viewBox="0 0 1200 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

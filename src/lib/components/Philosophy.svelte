@@ -114,7 +114,7 @@
 >
   <!-- Decorative scribble arrow that loops around then points to the paragraphs -->
   <svg
-    class="absolute left-0 md:left-8 top-32 w-full h-[400px] md:h-[500px] pointer-events-none z-0"
+    class="absolute left-0 md:left-8 top-32 w-full h-[400px] md:h-[500px] pointer-events-none -z-10"
     viewBox="0 0 800 400"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -1,11 +1,13 @@
 /**
  * GSAP Animation Utilities for Carthigan
  * Centralized animation configuration and helper functions
+ * 
+ * NOTE: This module should only be imported in browser context (onMount, etc.)
  */
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register plugins
+// Register plugins only in browser
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -444,14 +446,18 @@ export function magneticHover(element: HTMLElement, strength: number = 0.3) {
  * Kill all ScrollTrigger instances (cleanup)
  */
 export function killAllScrollTriggers() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  if (typeof window !== 'undefined') {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  }
 }
 
 /**
  * Refresh ScrollTrigger (call after DOM changes)
  */
 export function refreshScrollTrigger() {
-  ScrollTrigger.refresh();
+  if (typeof window !== 'undefined') {
+    ScrollTrigger.refresh();
+  }
 }
 
 // Re-export gsap and ScrollTrigger for direct use

@@ -162,7 +162,7 @@
 
       <!-- Scribble arrow in empty space below button, pointing toward phone mockup -->
       <svg
-        class="w-full h-24 mt-4 hidden md:block"
+        class="w-48 md:w-full h-16 md:h-24 mt-2 md:mt-4"
         viewBox="0 0 400 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

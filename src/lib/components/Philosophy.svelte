@@ -142,7 +142,7 @@
 
       <!-- Scribble arrow in the space below the heading, pointing right toward paragraphs -->
       <svg
-        class="w-full h-48 mt-8 hidden md:block"
+        class="w-48 md:w-full h-24 md:h-48 mt-4 md:mt-8"
         viewBox="0 0 400 180"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -75,8 +75,8 @@
   class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md"
 >
   <div class="max-w-[1400px] mx-auto flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="group flex items-center gap-3">
+    <!-- Logo - only visible on mobile -->
+    <a href="/" class="group flex items-center gap-3 md:hidden">
       <img
         src="/favicon.svg"
         alt="Carthigan Logo"

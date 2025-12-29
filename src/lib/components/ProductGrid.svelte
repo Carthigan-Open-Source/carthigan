@@ -25,7 +25,7 @@
       title: "Carthigan Studio",
       tagline: "Sound for the New Generation.",
       description:
-        "Professional audio production optimized for creative freedom.",
+        "Professional VST plugins engineered for creative freedom and sonic excellence.",
       status: "In Development",
       action: "Waitlist",
       link: "/studio",

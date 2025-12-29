@@ -1,0 +1,112 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#2A2A2A"/>
+  
+  <!-- Application Layer -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="20" width="300" height="60" rx="8" fill="#F5F5F0"/>
+    <text x="450" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#2A2A2A">Your Application</text>
+    <text x="450" y="62" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#2A2A2A">(implements CarthageApp)</text>
+  </g>
+  
+  <!-- Arrow from App to Framework -->
+  <path d="M450 80 L450 110" stroke="#F5F5F0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#F5F5F0"/>
+    </marker>
+  </defs>
+  
+  <!-- Carthage Framework Box -->
+  <rect x="150" y="120" width="600" height="130" rx="12" fill="none" stroke="#4EC9B0" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="450" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#4EC9B0" font-weight="bold">CARTHAGE FRAMEWORK (Rust)</text>
+  
+  <!-- Framework Components -->
+  <g filter="url(#shadow)">
+    <rect x="170" y="160" width="130" height="70" rx="6" fill="#4EC9B0"/>
+    <text x="235" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#2A2A2A">CarthageApp</text>
+    <text x="235" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#2A2A2A">Trait</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="320" y="160" width="130" height="70" rx="6" fill="#4EC9B0"/>
+    <text x="385" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#2A2A2A">CarthageRunner</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="470" y="160" width="130" height="70" rx="6" fill="#4EC9B0"/>
+    <text x="535" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#2A2A2A">Events &amp; State</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="620" y="160" width="130" height="70" rx="6" fill="#4EC9B0"/>
+    <text x="685" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#2A2A2A">FeedbackQueue</text>
+  </g>
+  
+  <!-- Arrows to lower layer -->
+  <path d="M385 230 L385 280" stroke="#F5F5F0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M235 230 L180 280" stroke="#F5F5F0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M685 230 L730 280" stroke="#F5F5F0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Platform Layer -->
+  <rect x="30" y="290" width="200" height="180" rx="12" fill="none" stroke="#569CD6" stroke-width="2"/>
+  <text x="130" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#569CD6" font-weight="bold">PLATFORM LAYER</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="50" y="330" width="160" height="50" rx="6" fill="#569CD6"/>
+    <text x="130" y="352" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#F5F5F0">Desktop</text>
+    <text x="130" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">Winit 0.30 + Vello 0.3</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="50" y="395" width="160" height="50" rx="6" fill="#569CD6"/>
+    <text x="130" y="417" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#F5F5F0">Mobile</text>
+    <text x="130" y="433" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">Android / iOS</text>
+  </g>
+  
+  <!-- Rendering Layer -->
+  <rect x="260" y="290" width="200" height="180" rx="12" fill="none" stroke="#569CD6" stroke-width="2"/>
+  <text x="360" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#569CD6" font-weight="bold">RENDERING</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="280" y="340" width="160" height="70" rx="6" fill="#569CD6"/>
+    <text x="360" y="370" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#F5F5F0">WGPU 22</text>
+    <text x="360" y="390" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">Metal / Vulkan / DX12</text>
+  </g>
+  
+  <!-- UI Layer -->
+  <rect x="490" y="290" width="170" height="180" rx="12" fill="none" stroke="#CE9178" stroke-width="2"/>
+  <text x="575" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#CE9178" font-weight="bold">UI LAYER</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="505" y="330" width="140" height="50" rx="6" fill="#CE9178"/>
+    <text x="575" y="352" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#2A2A2A">carthage_ui</text>
+    <text x="575" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#2A2A2A">Material 3 Widgets</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="505" y="395" width="140" height="50" rx="6" fill="#CE9178"/>
+    <text x="575" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#2A2A2A">Theme System</text>
+  </g>
+  
+  <!-- Audio Layer -->
+  <rect x="690" y="290" width="180" height="180" rx="12" fill="none" stroke="#C586C0" stroke-width="2"/>
+  <text x="780" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#C586C0" font-weight="bold">AUDIO LAYER</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="710" y="330" width="140" height="50" rx="6" fill="#C586C0"/>
+    <text x="780" y="352" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#F5F5F0">carthage_audio</text>
+    <text x="780" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">C++ Engine</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="710" y="395" width="140" height="50" rx="6" fill="#C586C0"/>
+    <text x="780" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#F5F5F0">CXX Bridge</text>
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+<svg width="1000" height="180" viewBox="0 0 1000 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#F5F5F0"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="180" fill="#2A2A2A"/>
+  
+  <!-- Title -->
+  <text x="500" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#F5F5F0">Audio Processing Flow</text>
+  
+  <!-- Legend -->
+  <rect x="30" y="150" width="12" height="12" rx="2" fill="#4EC9B0"/>
+  <text x="48" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">UI Thread</text>
+  <rect x="120" y="150" width="12" height="12" rx="2" fill="#C586C0"/>
+  <text x="138" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">Audio Thread</text>
+  <rect x="230" y="150" width="12" height="12" rx="2" fill="#569CD6"/>
+  <text x="248" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#F5F5F0">Render Thread</text>
+  
+  <!-- Flow boxes -->
+  <!-- User Input -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="55" width="70" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="55" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">User Input</text>
+  </g>
+  <path d="M90 75 L105 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Event Loop -->
+  <g filter="url(#shadow)">
+    <rect x="115" y="55" width="70" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="150" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">Event Loop</text>
+  </g>
+  <path d="M185 75 L200 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- update() -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="55" width="60" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="240" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">update()</text>
+  </g>
+  <path d="M270 75 L285 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Parameters -->
+  <g filter="url(#shadow)">
+    <rect x="295" y="55" width="70" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="330" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">Parameters</text>
+  </g>
+  <path d="M365 75 L380 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Audio Thread -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="55" width="80" height="40" rx="6" fill="#C586C0"/>
+    <text x="430" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#F5F5F0">Audio Thread</text>
+  </g>
+  <path d="M470 75 L485 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Feedback -->
+  <g filter="url(#shadow)">
+    <rect x="495" y="55" width="65" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="527" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">Feedback</text>
+  </g>
+  <path d="M560 75 L575 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Queue -->
+  <g filter="url(#shadow)">
+    <rect x="585" y="55" width="55" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="612" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">Queue</text>
+  </g>
+  <path d="M640 75 L655 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- view() -->
+  <g filter="url(#shadow)">
+    <rect x="665" y="55" width="55" height="40" rx="6" fill="#4EC9B0"/>
+    <text x="692" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#2A2A2A">view()</text>
+  </g>
+  <path d="M720 75 L735 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Vello Scene -->
+  <g filter="url(#shadow)">
+    <rect x="745" y="55" width="70" height="40" rx="6" fill="#569CD6"/>
+    <text x="780" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#F5F5F0">Vello Scene</text>
+  </g>
+  <path d="M815 75 L830 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- GPU Render -->
+  <g filter="url(#shadow)">
+    <rect x="840" y="55" width="70" height="40" rx="6" fill="#569CD6"/>
+    <text x="875" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#F5F5F0">GPU Render</text>
+  </g>
+  <path d="M910 75 L925 75" stroke="#F5F5F0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Display -->
+  <g filter="url(#shadow)">
+    <rect x="935" y="55" width="55" height="40" rx="6" fill="#569CD6"/>
+    <text x="962" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#F5F5F0">Display</text>
+  </g>
+</svg>

@@ -76,9 +76,9 @@
         >
           <div class="space-y-6">
             <span
-              class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full"
+              class="inline-block text-[10px] uppercase tracking-widest font-bold text-white bg-green-600 px-3 py-1 rounded-full"
             >
-              Beta • January 5th
+              Free Release
             </span>
 
             <div class="space-y-2">
@@ -88,7 +88,7 @@
                 NEST Synthesizer
               </h3>
               <p class="text-lg font-medium italic text-carthigan-charcoal/60">
-                State of the Art Wavetable Synthesis.
+                Now Available—100% Free.
               </p>
             </div>
 
@@ -96,7 +96,7 @@
               class="font-light text-carthigan-charcoal/80 leading-relaxed max-w-sm"
             >
               512 pristine wavetables, 256 voices, neural modulation matrix. All
-              powered by Carthage Architecture for sub-5% CPU usage.
+              powered by Carthage Architecture. Free forever.
             </p>
           </div>
 
@@ -104,7 +104,7 @@
             <span
               class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:opacity-70 transition-opacity"
             >
-              Learn More
+              Download Free
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

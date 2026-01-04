@@ -1,30 +1,47 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { gsap, ANIMATION_CONFIG } from "$lib/gsap";
-  import WaitlistModal from "$lib/components/WaitlistModal.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import NestLogo from "$lib/components/NestLogo.svelte";
 
-  let isModalOpen = $state(false);
   let currentSlide = $state(0);
-
-  // Countdown state
-  let days = $state(0);
-  let hours = $state(0);
-  let minutes = $state(0);
-  let seconds = $state(0);
+  let currentCampaign = $state(0);
 
   let heroRef: HTMLElement;
   let showcaseRef: HTMLElement;
   let featuresRef: HTMLElement;
   let specsRef: HTMLElement;
   let ctaRef: HTMLElement;
+  let campaignRef: HTMLElement;
 
   const slides = [
     { src: "/nest-ui-1.png", alt: "Nest Main Interface" },
     { src: "/nest-ui-2.png", alt: "Nest Modulation Matrix" },
     { src: "/nest-ui-3.png", alt: "Nest Effects Rack" },
     { src: "/nest-ui-4.png", alt: "Nest Preset Browser" },
+  ];
+
+  const campaignAssets = [
+    {
+      type: "image",
+      src: "/nest-campaign/neural-net-logo.png",
+      alt: "NEST Neural Net Logo",
+    },
+    {
+      type: "image",
+      src: "/nest-campaign/intelligent-automation.png",
+      alt: "Intelligent Automation Built-in",
+    },
+    {
+      type: "image",
+      src: "/nest-campaign/modulation-highlight.png",
+      alt: "Neural Modulation Matrix",
+    },
+    {
+      type: "video",
+      src: "/nest-campaign/modulation-visual.mp4",
+      alt: "Neural Modulation in Action",
+    },
   ];
 
   const features = [
@@ -54,10 +71,6 @@
     { label: "Effects", value: "24" },
   ];
 
-  function openWaitlist() {
-    isModalOpen = true;
-  }
-
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
   }
@@ -66,30 +79,16 @@
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   }
 
-  function updateCountdown() {
-    // January 5th, 2026 at midnight EAT (UTC+3)
-    const releaseDate = new Date("2026-01-05T00:00:00+03:00").getTime();
-    const now = new Date().getTime();
-    const distance = releaseDate - now;
+  function nextCampaign() {
+    currentCampaign = (currentCampaign + 1) % campaignAssets.length;
+  }
 
-    if (distance > 0) {
-      days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    } else {
-      days = 0;
-      hours = 0;
-      minutes = 0;
-      seconds = 0;
-    }
+  function prevCampaign() {
+    currentCampaign =
+      (currentCampaign - 1 + campaignAssets.length) % campaignAssets.length;
   }
 
   onMount(() => {
-    // Initialize countdown
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-
     // Hero entrance animation
     gsap.set([heroRef.querySelectorAll(".animate-item")], {
       opacity: 0,
@@ -116,6 +115,20 @@
       ease: ANIMATION_CONFIG.ease.smooth,
       scrollTrigger: {
         trigger: showcaseRef,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    // Campaign section animation
+    gsap.set(campaignRef, { opacity: 0, y: 50 });
+    gsap.to(campaignRef, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: ANIMATION_CONFIG.ease.smooth,
+      scrollTrigger: {
+        trigger: campaignRef,
         start: "top 80%",
         toggleActions: "play none none none",
       },
@@ -175,7 +188,6 @@
     return () => {
       tl.kill();
       clearInterval(slideInterval);
-      clearInterval(countdownInterval);
     };
   });
 </script>
@@ -184,11 +196,9 @@
   <title>NEST Synthesizer | Carthigan Studio</title>
   <meta
     name="description"
-    content="NEST - State of the art wavetable synthesizer powered by Carthage Architecture. Engineered in Kampala for the world."
+    content="NEST - State of the art wavetable synthesizer powered by Carthage Architecture. Now available for FREE. Engineered in Kampala for the world."
   />
 </svelte:head>
-
-<WaitlistModal bind:isOpen={isModalOpen} productName="NEST Synthesizer" />
 
 <div class="bg-carthigan-cream min-h-screen font-sans">
   <!-- Navigation -->
@@ -211,9 +221,9 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="space-y-8">
         <span
-          class="animate-item inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full"
+          class="animate-item inline-block text-[10px] uppercase tracking-widest font-bold text-white bg-green-600 px-4 py-2 rounded-full"
         >
-          VST Plugin • Beta January 5th
+          Now Available • 100% FREE
         </span>
 
         <h1
@@ -226,16 +236,32 @@
           class="animate-item text-xl md:text-2xl font-light text-carthigan-charcoal/80 leading-relaxed"
         >
           State of the art wavetable synthesis, powered by our Carthage
-          Architecture for unmatched efficiency and sonic depth.
+          Architecture for unmatched efficiency and sonic depth. <strong
+            >Completely free.</strong
+          >
         </p>
 
         <div class="animate-item flex flex-wrap gap-4">
-          <button
-            onclick={openWaitlist}
-            class="px-8 py-4 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105 shadow-xl"
+          <a
+            href="/NestInstaller.app"
+            download
+            class="px-8 py-4 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105 shadow-xl flex items-center gap-3"
           >
-            Join the Waitlist
-          </button>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            Download Free
+          </a>
           <a
             href="#showcase"
             class="px-8 py-4 border border-carthigan-charcoal/20 text-carthigan-charcoal font-bold uppercase tracking-widest hover:border-carthigan-charcoal/40 transition-all"
@@ -253,40 +279,40 @@
     </div>
   </header>
 
-  <!-- Countdown Section -->
+  <!-- Release Banner -->
   <section
     class="py-12 px-6 md:px-12 bg-carthigan-charcoal text-carthigan-cream"
   >
     <div class="max-w-4xl mx-auto text-center">
-      <h2
-        class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-cream/60 mb-6"
-      >
-        Beta Release Countdown
+      <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">
+        NEST Is Here!
       </h2>
-      <div class="flex justify-center gap-4 md:gap-8">
-        <div class="countdown-item">
-          <span class="countdown-value">{String(days).padStart(2, "0")}</span>
-          <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-separator">:</div>
-        <div class="countdown-item">
-          <span class="countdown-value">{String(hours).padStart(2, "0")}</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-separator">:</div>
-        <div class="countdown-item">
-          <span class="countdown-value">{String(minutes).padStart(2, "0")}</span
-          >
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-separator">:</div>
-        <div class="countdown-item">
-          <span class="countdown-value">{String(seconds).padStart(2, "0")}</span
-          >
-          <span class="countdown-label">Seconds</span>
-        </div>
-      </div>
-      <p class="mt-6 text-sm text-carthigan-cream/50">January 5th, 2026</p>
+      <p class="text-xl text-carthigan-cream/80 mb-6">
+        The wait is over. Download NEST today and start creating.
+      </p>
+      <a
+        href="/NestInstaller.app"
+        download
+        class="inline-flex items-center gap-3 px-10 py-4 bg-carthigan-cream text-carthigan-charcoal font-bold uppercase tracking-widest hover:bg-white transition-all rounded-lg"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          />
+        </svg>
+        Download for macOS
+      </a>
+      <p class="mt-4 text-sm text-carthigan-cream/50">
+        Windows version coming soon
+      </p>
     </div>
   </section>
 
@@ -317,12 +343,12 @@
       </div>
       <div class="text-center">
         <span
-          class="block text-3xl md:text-4xl font-display font-bold text-carthigan-charcoal"
-          >&lt;5%</span
+          class="block text-3xl md:text-4xl font-display font-bold text-green-600"
+          >FREE</span
         >
         <span
           class="text-sm uppercase tracking-widest text-carthigan-charcoal/50"
-          >CPU Usage</span
+          >Forever</span
         >
       </div>
       <div class="text-center">
@@ -422,6 +448,110 @@
     </div>
   </section>
 
+  <!-- Campaign Gallery -->
+  <section
+    bind:this={campaignRef}
+    class="py-24 px-6 md:px-12 bg-carthigan-charcoal"
+  >
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 text-center">
+        <h2
+          class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-cream/60 mb-4"
+        >
+          Neural Synthesis
+        </h2>
+        <p
+          class="text-2xl md:text-3xl font-display font-bold text-carthigan-cream"
+        >
+          Powered by Intelligence
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Campaign Media -->
+        <div
+          class="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+        >
+          {#each campaignAssets as asset, i}
+            {#if asset.type === "video"}
+              <video
+                src={asset.src}
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style="opacity: {currentCampaign === i ? 1 : 0}"
+                autoplay
+                loop
+                muted
+                playsinline
+              ></video>
+            {:else}
+              <img
+                src={asset.src}
+                alt={asset.alt}
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style="opacity: {currentCampaign === i ? 1 : 0}"
+              />
+            {/if}
+          {/each}
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+          onclick={prevCampaign}
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-carthigan-cream/90 rounded-full flex items-center justify-center shadow-lg hover:bg-carthigan-cream transition-colors"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onclick={nextCampaign}
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-carthigan-cream/90 rounded-full flex items-center justify-center shadow-lg hover:bg-carthigan-cream transition-colors"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="flex justify-center gap-2 mt-6">
+          {#each campaignAssets as _, i}
+            <button
+              onclick={() => (currentCampaign = i)}
+              class="w-3 h-3 rounded-full transition-all {currentCampaign === i
+                ? 'bg-carthigan-cream'
+                : 'bg-carthigan-cream/30'}"
+            ></button>
+          {/each}
+        </div>
+
+        <!-- Caption -->
+        <p class="text-center mt-4 text-carthigan-cream/60">
+          {campaignAssets[currentCampaign].alt}
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Features Grid -->
   <section
     bind:this={featuresRef}
@@ -502,7 +632,7 @@
           </div>
           <div>
             <span class="block font-bold text-carthigan-charcoal">Windows</span>
-            <span class="text-sm text-carthigan-charcoal/60">10/11 (VST3)</span>
+            <span class="text-sm text-carthigan-charcoal/60">Coming Soon</span>
           </div>
           <div>
             <span class="block font-bold text-carthigan-charcoal">RAM</span>
@@ -519,12 +649,12 @@
     </div>
   </section>
 
-  <!-- Pricing Section -->
+  <!-- Pricing Section - Now Free -->
   <section
     class="py-24 px-6 md:px-12 bg-white/50 border-y border-carthigan-charcoal/5"
   >
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-16 text-center">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="mb-12">
         <h2
           class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/60 mb-4"
         >
@@ -533,144 +663,73 @@
         <p
           class="text-2xl md:text-3xl font-display font-bold text-carthigan-charcoal"
         >
-          Choose Your License
+          Free. Forever.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Trial -->
-        <div
-          class="p-8 border border-carthigan-charcoal/10 rounded-xl bg-carthigan-cream text-center"
+      <div
+        class="p-12 border-2 border-green-600 rounded-2xl bg-carthigan-cream relative"
+      >
+        <span
+          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-sm uppercase tracking-widest font-bold px-6 py-2 rounded-full"
         >
-          <span
-            class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full mb-4"
-          >
-            Free Trial
-          </span>
-          <h3
-            class="text-2xl font-display font-bold text-carthigan-charcoal mb-2"
-          >
-            Trial
-          </h3>
-          <div
-            class="text-4xl font-display font-bold text-carthigan-charcoal mb-6"
-          >
-            Free
-          </div>
-          <ul class="text-left space-y-3 mb-8 text-carthigan-charcoal/70">
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Full feature access</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>30-day trial period</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>50 preset library</span>
-            </li>
-          </ul>
-          <button
-            onclick={openWaitlist}
-            class="w-full py-3 border border-carthigan-charcoal/20 text-carthigan-charcoal font-bold uppercase tracking-widest hover:border-carthigan-charcoal/40 transition-all rounded-lg"
-          >
-            Get Notified
-          </button>
-        </div>
+          Free Release
+        </span>
 
-        <!-- Full License -->
         <div
-          class="p-8 border-2 border-carthigan-charcoal rounded-xl bg-carthigan-cream text-center relative"
+          class="text-6xl md:text-8xl font-display font-bold text-green-600 mb-4"
         >
-          <span
-            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-carthigan-charcoal text-carthigan-cream text-[10px] uppercase tracking-widest font-bold px-4 py-1 rounded-full"
-          >
-            Popular
-          </span>
-          <span
-            class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full mb-4"
-          >
-            One-Time Purchase
-          </span>
-          <h3
-            class="text-2xl font-display font-bold text-carthigan-charcoal mb-2"
-          >
-            Full License
-          </h3>
-          <div
-            class="text-4xl font-display font-bold text-carthigan-charcoal mb-2"
-          >
-            TBA
-          </div>
-          <p class="text-sm text-carthigan-charcoal/50 mb-6">To Be Announced</p>
-          <ul class="text-left space-y-3 mb-8 text-carthigan-charcoal/70">
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Unlimited access</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>500+ presets</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Free updates for 1 year</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Priority support</span>
-            </li>
-          </ul>
-          <button
-            onclick={openWaitlist}
-            class="w-full py-3 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all rounded-lg"
-          >
-            Join Waitlist
-          </button>
+          $0
         </div>
+        <p class="text-xl text-carthigan-charcoal/70 mb-8">
+          No tricks. No subscriptions. Just powerful synthesis.
+        </p>
 
-        <!-- Subscription -->
-        <div
-          class="p-8 border border-carthigan-charcoal/10 rounded-xl bg-carthigan-cream text-center"
+        <ul
+          class="text-left max-w-sm mx-auto space-y-4 mb-10 text-carthigan-charcoal/80"
         >
-          <span
-            class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full mb-4"
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 text-lg">✓</span>
+            <span>Full feature access</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 text-lg">✓</span>
+            <span>512 wavetables included</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 text-lg">✓</span>
+            <span>500+ factory presets</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 text-lg">✓</span>
+            <span>Neural Modulation Matrix</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-600 text-lg">✓</span>
+            <span>Free updates forever</span>
+          </li>
+        </ul>
+
+        <a
+          href="/NestInstaller.app"
+          download
+          class="inline-flex items-center gap-3 px-12 py-5 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105 shadow-xl text-lg rounded-lg"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
           >
-            Monthly
-          </span>
-          <h3
-            class="text-2xl font-display font-bold text-carthigan-charcoal mb-2"
-          >
-            Subscription
-          </h3>
-          <div
-            class="text-4xl font-display font-bold text-carthigan-charcoal mb-2"
-          >
-            TBA
-          </div>
-          <p class="text-sm text-carthigan-charcoal/50 mb-6">To Be Announced</p>
-          <ul class="text-left space-y-3 mb-8 text-carthigan-charcoal/70">
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>All features included</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Always up to date</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-carthigan-charcoal">✓</span>
-              <span>Expanding sound library</span>
-            </li>
-          </ul>
-          <button
-            onclick={openWaitlist}
-            class="w-full py-3 border border-carthigan-charcoal/20 text-carthigan-charcoal font-bold uppercase tracking-widest hover:border-carthigan-charcoal/40 transition-all rounded-lg"
-          >
-            Get Notified
-          </button>
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          Download Now
+        </a>
       </div>
     </div>
   </section>
@@ -684,23 +743,38 @@
       <h2
         class="text-4xl md:text-6xl font-bold tracking-tighter text-carthigan-charcoal leading-tight"
       >
-        Ready to Create?
+        Start Creating Today
       </h2>
       <p
         class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-2xl mx-auto"
       >
-        Join the waitlist to be the first to experience NEST when it launches.
+        Join thousands of producers already using NEST to craft the sounds of
+        tomorrow.
       </p>
       <div class="pt-4">
-        <button
-          onclick={openWaitlist}
-          class="px-10 py-5 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105 shadow-xl text-lg"
+        <a
+          href="/NestInstaller.app"
+          download
+          class="inline-flex items-center gap-3 px-10 py-5 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105 shadow-xl text-lg"
         >
-          Join the Waitlist
-        </button>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          Download Free
+        </a>
       </div>
       <p class="text-sm text-carthigan-charcoal/50">
-        Free trial available at launch • No credit card required
+        macOS 10.15+ • Windows coming soon
       </p>
     </div>
   </section>
@@ -722,50 +796,5 @@
 
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  .countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .countdown-value {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.05em;
-  }
-
-  @media (min-width: 768px) {
-    .countdown-value {
-      font-size: 4rem;
-    }
-  }
-
-  .countdown-label {
-    font-size: 0.625rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    opacity: 0.6;
-    margin-top: 0.5rem;
-  }
-
-  .countdown-separator {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    opacity: 0.4;
-    line-height: 1;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 0.25rem;
-  }
-
-  @media (min-width: 768px) {
-    .countdown-separator {
-      font-size: 3rem;
-    }
   }
 </style>

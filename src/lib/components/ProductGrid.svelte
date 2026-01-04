@@ -25,9 +25,9 @@
       title: "Carthigan Studio",
       tagline: "Sound for the New Generation.",
       description:
-        "Professional VST plugins powered by Carthage Architecture. Starting with NEST—our flagship synthesizer.",
-      status: "Beta • January 5th",
-      action: "Learn More",
+        "Professional VST plugins powered by Carthage Architecture. NEST synthesizer now available—100% FREE.",
+      status: "Free Release",
+      action: "Download Free",
       link: "/studio",
       hasDetails: true,
     },

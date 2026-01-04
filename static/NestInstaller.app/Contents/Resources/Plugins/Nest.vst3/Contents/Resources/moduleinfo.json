@@ -1,0 +1,48 @@
+{
+  "Name": "NEST",
+  "Version": "1.0.0",
+  "Factory Info": {
+    "Vendor": "Carthigan",
+    "URL": "https://carthigan.com",
+    "E-Mail": "contact@carthigan.com",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "ABCDEF019182FAEB436172744E657374",
+      "Category": "Audio Module Class",
+      "Name": "NEST",
+      "Vendor": "Carthigan",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.8.0",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF011234ABCD436172744E657374",
+      "Category": "Component Controller Class",
+      "Name": "NEST",
+      "Vendor": "Carthigan",
+      "Version": "1.0.0",
+      "SDKVersion": "VST 3.8.0",
+      "Sub Categories": [
+        "Instrument",
+        "Synth",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

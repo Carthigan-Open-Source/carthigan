@@ -1,6 +1,6 @@
 # Carthigan
 
-World-Class Engineering. Born in Kampala.
+World-Class Engineering. Built for the Planet.
 
 ## Creating a project
 

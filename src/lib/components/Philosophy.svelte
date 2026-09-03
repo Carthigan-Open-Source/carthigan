@@ -119,7 +119,7 @@
         bind:this={headingRef}
         class="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight"
       >
-        Tested in Uganda,<br />Ready for the World.
+        Hardened by Constraint.<br />Engineered for the World.
       </h2>
 
       <!-- Hand-drawn underline SVG -->
@@ -184,19 +184,18 @@
       class="md:col-span-7 space-y-8 text-lg md:text-xl font-light leading-relaxed text-carthigan-charcoal/90"
     >
       <p>
-        <strong class="font-medium">Carthigan</strong> is not an 'African alternative'
-        to Big Tech. We are the next evolution of it.
+        <strong class="font-medium">Carthigan</strong> is not an alternative to Big Tech.
+        We are the next evolution of it.
       </p>
       <p>
-        We believe that the constraints of our environment drive the quality of
-        our innovation. By building operating systems, mobile frameworks, and
-        hardware that thrive in Uganda, we are creating technology that is more
-        efficient, more resilient, and more human for the rest of the world.
+        We believe that extreme constraints drive the highest caliber of innovation.
+        By engineering operating systems, high-efficiency audio engines, and native GPU
+        frameworks built to maximize every watt and compute cycle, we create technology
+        that is leaner, faster, and truly sovereign.
       </p>
       <p>
-        We are starting with our home—building the definitive Luganda learning
-        experience and tools for our local creatives. But our vision is
-        borderless.
+        From next-generation audio synthesizers to edge AI and sovereign microkernel
+        architectures, our engineering is uncompromising, resilient, and borderless.
       </p>
     </div>
   </div>

@@ -22,7 +22,7 @@
       </h1>
       
       <p class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-2xl leading-relaxed">
-        Technology is only as good as the intent behind it. We are engineers, artists, and patriots building the foundation for a self-reliant continent.
+        Technology is only as good as the intent behind it. We are engineers, artists, and architects building the foundation for true technological sovereignty.
       </p>
     </div>
   </header>
@@ -37,10 +37,10 @@
               <strong class="font-medium text-carthigan-charcoal">It started with a contradiction.</strong>
           </p>
           <p>
-              Africa is the fastest-growing continent on Earth, yet our digital infrastructure—our phones, our operating systems, our cloud services—is almost entirely imported. We are digital tenants in our own home.
+              Digital infrastructure worldwide—our phones, our operating systems, our cloud services—is monopolized by a handful of centralized giants. Users and developers are digital tenants in their own tools.
           </p>
           <p>
-              Carthigan was founded in Kampala to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from the language learning app to the micro-kernel, we are reclaiming our digital future.
+              Carthigan was founded to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from language engines to microkernels, we are engineering a truly independent technological future.
           </p>
       </div>
   </section>

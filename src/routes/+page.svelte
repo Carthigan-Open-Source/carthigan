@@ -8,7 +8,7 @@
 
 <svelte:head>
   <title>Carthigan</title>
-  <meta name="description" content="World-Class Engineering. Born in Kampala. Building the ecosystem that powers the continent." />
+  <meta name="description" content="World-Class Engineering. Built for the Planet. High-performance software, audio synthesis, and sovereign computing." />
 </svelte:head>
 
 <main class="w-full overflow-hidden">

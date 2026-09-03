@@ -259,8 +259,8 @@
           </div>
           <h3 class="text-2xl font-display font-bold">Dialect Precision</h3>
           <p class="text-carthigan-charcoal/70 leading-relaxed">
-            Understand the nuance between casual Kampala slang and formal
-            Buganda court language.
+            Understand the nuance between modern conversational idioms and formal
+            court language.
           </p>
         </div>
 

@@ -40,8 +40,8 @@
       <p
         class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-2xl mx-auto leading-relaxed"
       >
-        Professional VST plugins engineered in Kampala. Powered by our Carthage
-        Architecture for unmatched efficiency.
+        Professional VST plugins powered by our Carthage Architecture for
+        unmatched efficiency and sonic depth.
       </p>
 
       <div class="pt-8">

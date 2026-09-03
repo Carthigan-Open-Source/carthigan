@@ -196,7 +196,7 @@
   <title>NEST Synthesizer | Carthigan Studio</title>
   <meta
     name="description"
-    content="NEST - State of the art wavetable synthesizer powered by Carthage Architecture. Now available for FREE. Engineered in Kampala for the world."
+    content="NEST - State of the art wavetable synthesizer powered by Carthage Architecture. Now available for FREE. Built for creators worldwide."
   />
 </svelte:head>
 

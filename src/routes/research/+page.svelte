@@ -59,7 +59,7 @@
               </div>
               <h2 class="text-4xl font-display font-bold text-carthigan-charcoal group-hover:text-carthigan-charcoal/70 transition-colors">Bit Models</h2>
               <p class="text-lg font-light text-carthigan-charcoal/80 leading-relaxed">
-                  Current AI models are too large for the average smartphone in Kampala. We are researching <strong>1.58-bit quantization</strong> techniques that reduce model size by 90% while retaining reasoning capabilities.
+                  Current AI models are too bloated for edge devices and consumer hardware. We are researching <strong>1.58-bit quantization</strong> techniques that reduce model size by 90% while retaining reasoning capabilities.
               </p>
               <ul class="space-y-2 text-sm font-mono text-carthigan-charcoal/60 pt-2 border-l-2 border-carthigan-charcoal/10 pl-4">
                   <li>• Inference on 2GB RAM devices</li>
@@ -82,12 +82,6 @@
                   <li>• Cultural alignment safety layers</li>
                   <li>• Preserving oral histories via Gandalingo</li>
               </ul>
-              
-              <div class="pt-4">
-                 <a href="/health-monitor" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-carthigan-charcoal border-b border-carthigan-charcoal hover:opacity-70 transition-opacity">
-                    See Hardware Implementation →
-                 </a>
-              </div>
           </div>
 
       </div>

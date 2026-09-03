@@ -105,14 +105,13 @@
       bind:this={headlineRef}
       class="text-6xl md:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-tight"
     >
-      World-Class Engineering.<br />Born in Kampala.
+      World-Class Engineering.<br />Built for the Planet.
     </h1>
     <p
       bind:this={subtitleRef}
       class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-3xl mx-auto leading-relaxed opacity-0"
     >
-      From language learning to semiconductors. Building the ecosystem that
-      powers the continent.
+      From high-performance audio synthesis to sovereign edge intelligence. Building technology without borders.
     </p>
   </div>
 

@@ -56,11 +56,6 @@
           href="/research"
           class="hover:text-carthigan-charcoal transition-colors">Research</a
         >
-        <a
-          href="/health-monitor"
-          class="hover:text-carthigan-charcoal transition-colors"
-          >Health Monitor</a
-        >
         <a href="/about" class="hover:text-carthigan-charcoal transition-colors"
           >About</a
         >
@@ -71,7 +66,7 @@
       <div
         class="flex items-center gap-2 text-sm font-medium tracking-widest uppercase text-carthigan-charcoal/80"
       >
-        <span>Kampala</span>
+        <span>Global</span>
         <span class="text-carthigan-charcoal/30">•</span>
         <span>Earth</span>
       </div>

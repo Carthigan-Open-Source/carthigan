@@ -1,6 +1,6 @@
-# sv
+# Carthigan
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+World-Class Engineering. Born in Kampala.
 
 ## Creating a project
 

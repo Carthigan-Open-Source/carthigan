@@ -33,9 +33,6 @@
         <h3 class="text-xl font-bold tracking-tight text-carthigan-charcoal">
           Carthigan Inc.
         </h3>
-        <p class="text-sm text-carthigan-charcoal/60 mt-1">
-          Founded by Eden Gilbert Kiseka & Okurut Joe
-        </p>
       </div>
 
       <!-- Navigation Links -->

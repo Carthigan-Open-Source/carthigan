@@ -46,17 +46,6 @@
           class="hover:text-carthigan-charcoal transition-colors">Studio</a
         >
         <a
-          href="/developers"
-          class="hover:text-carthigan-charcoal transition-colors">Developers</a
-        >
-        <a
-          href="/research"
-          class="hover:text-carthigan-charcoal transition-colors">Research</a
-        >
-        <a href="/about" class="hover:text-carthigan-charcoal transition-colors"
-          >About</a
-        >
-        <a
           href="/education"
           class="hover:text-carthigan-charcoal transition-colors"
           >Education</a

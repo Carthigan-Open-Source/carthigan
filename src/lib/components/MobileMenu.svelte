@@ -70,101 +70,96 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<!-- Header/Navigation Bar - spans only right half on desktop -->
+<!-- Header/Navigation Bar - Floating Unified Pill Dock -->
 <header
-  class="fixed top-0 right-0 md:left-auto md:w-1/2 left-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md md:rounded-bl-2xl"
+  class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl px-5 py-3 bg-carthigan-cream/90 backdrop-blur-md rounded-full border border-carthigan-charcoal/10 shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex items-center justify-between transition-all"
 >
-  <div
-    class="max-w-[1400px] mx-auto flex items-center justify-between md:justify-end"
-  >
-    <!-- Logo - only visible on mobile -->
-    <a href="/" class="group flex items-center gap-3 md:hidden">
-      <img
-        src="/favicon.svg"
-        alt="Carthigan Logo"
-        class="w-8 h-8 transition-transform group-hover:rotate-12"
-      />
-      <span
-        class="font-space-grotesk text-lg font-semibold tracking-tight text-carthigan-charcoal"
-        >Carthigan</span
-      >
-    </a>
-
-    <!-- Desktop Navigation - stays on the right -->
-    <nav class="hidden md:flex items-center gap-8 ml-auto">
-      <a
-        href="/about"
-        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >About</a
-      >
-      <a
-        href="/research"
-        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >Research</a
-      >
-      <a
-        href="/developers"
-        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >Developers</a
-      >
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button
-      onclick={toggle}
-      class="md:hidden w-10 h-10 flex items-center justify-center"
-      aria-label={isOpen ? "Close menu" : "Open menu"}
+  <!-- Brand Anchor (Always Visible) -->
+  <a href="/" class="group flex items-center gap-2.5 pl-1">
+    <img
+      src="/favicon.svg"
+      alt="Carthigan"
+      class="w-6 h-6 transition-transform group-hover:rotate-12"
+    />
+    <span
+      class="font-display text-base font-bold tracking-tight text-carthigan-charcoal"
+      >Carthigan</span
     >
-      <div class="relative w-6 h-5">
-        <span
-          class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
-            ? 'top-2 rotate-45'
-            : 'top-0 rotate-0'}"
-        ></span>
-        <span
-          class="absolute left-0 top-2 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
-            ? 'opacity-0'
-            : 'opacity-100'}"
-        ></span>
-        <span
-          class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
-            ? 'top-2 -rotate-45'
-            : 'top-4 rotate-0'}"
-        ></span>
-      </div>
-    </button>
-  </div>
+  </a>
+
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex items-center gap-1">
+    <a
+      href="/studio"
+      class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-carthigan-charcoal/70 hover:text-carthigan-charcoal hover:bg-carthigan-charcoal/5 rounded-full transition-colors"
+      >Studio</a
+    >
+    <a
+      href="/education"
+      class="px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-carthigan-charcoal/70 hover:text-carthigan-charcoal hover:bg-carthigan-charcoal/5 rounded-full transition-colors"
+      >Education</a
+    >
+  </nav>
+
+  <!-- Mobile Menu Button -->
+  <button
+    onclick={toggle}
+    class="md:hidden w-8 h-8 flex items-center justify-center rounded-full hover:bg-carthigan-charcoal/5 transition-colors"
+    aria-label={isOpen ? "Close menu" : "Open menu"}
+  >
+    <div class="relative w-5 h-4">
+      <span
+        class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+          ? 'top-1.5 rotate-45'
+          : 'top-0 rotate-0'}"
+      ></span>
+      <span
+        class="absolute left-0 top-1.5 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+          ? 'opacity-0'
+          : 'opacity-100'}"
+      ></span>
+      <span
+        class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+          ? 'top-1.5 -rotate-45'
+          : 'top-3 rotate-0'}"
+      ></span>
+    </div>
+  </button>
 </header>
 
 <!-- Mobile Menu Overlay -->
 {#if isOpen}
   <div
     bind:this={overlayRef}
-    class="fixed inset-0 z-40 bg-carthigan-cream md:hidden"
+    class="fixed inset-0 z-40 bg-carthigan-cream/98 backdrop-blur-xl md:hidden flex flex-col justify-between p-8 pt-28"
     style="opacity: 0;"
   >
     <nav
       bind:this={navRef}
-      class="flex flex-col items-center justify-center h-full gap-8"
+      class="flex flex-col items-start justify-center gap-6 my-auto"
     >
       <a
-        href="/about"
+        href="/studio"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >About</a
+        class="text-3xl font-display font-bold text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        >Studio</a
       >
       <a
-        href="/research"
+        href="/education"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >Research</a
+        class="text-3xl font-display font-bold text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        >Education</a
       >
       <a
-        href="/developers"
+        href="/gandalingo"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >Developers</a
+        class="text-xl font-display text-carthigan-charcoal/60 hover:opacity-60 transition-opacity pt-4 border-t border-carthigan-charcoal/10 w-full"
+        >Gandalingo →</a
       >
     </nav>
+
+    <div class="text-xs text-carthigan-charcoal/40 uppercase tracking-widest">
+      Carthigan • Global
+    </div>
   </div>
 {/if}

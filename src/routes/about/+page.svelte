@@ -63,9 +63,6 @@
                       <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">Eden Gilbert Kiseka</h3>
                       <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Founder & Lead Engineer</div>
                   </div>
-                  <p class="text-carthigan-charcoal/70 leading-relaxed max-w-md">
-                      Data Scientist and Electrical Engineer. Eden bridges the gap between hardware physics and high-level software. Previously lead Data Scientist at Googah Goats and Junior DS at Huawei. His vision drives the "Chip-to-Cloud" architecture of Carthigan.
-                  </p>
               </div>
 
               <!-- Joe -->
@@ -78,9 +75,6 @@
                       <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">Okurut Joe</h3>
                       <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Co-Founder & CTO</div>
                   </div>
-                  <p class="text-carthigan-charcoal/70 leading-relaxed max-w-md">
-                      Telecommunications Engineer and strategic anchor of Carthigan. As CTO, Joe brings deep expertise in network infrastructure and signal processing. He ensures that our ambitious roadmap—from mobile frameworks to OS kernels—is built on a foundation of rigorous, scalable engineering.
-                  </p>
               </div>
           </div>
       </div>

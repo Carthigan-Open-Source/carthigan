@@ -71,7 +71,7 @@
                   </div>
                   <div class="space-y-2">
                       <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">Eden Gilbert Kiseka</h3>
-                      <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Founder & Lead Engineer</div>
+                      <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Technical Lead</div>
                   </div>
               </div>
 

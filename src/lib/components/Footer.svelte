@@ -38,10 +38,6 @@
       <!-- Navigation Links -->
       <nav class="flex gap-6 text-sm font-medium text-carthigan-charcoal/70">
         <a
-          href="/gandalingo"
-          class="hover:text-carthigan-charcoal transition-colors">Gandalingo</a
-        >
-        <a
           href="/studio"
           class="hover:text-carthigan-charcoal transition-colors">Studio</a
         >
@@ -49,6 +45,11 @@
           href="/education"
           class="hover:text-carthigan-charcoal transition-colors"
           >Education</a
+        >
+        <a
+          href="/developers"
+          class="hover:text-carthigan-charcoal transition-colors"
+          >Developers</a
         >
       </nav>
     </div>

@@ -12,16 +12,6 @@
 
   const products = [
     {
-      title: "Gandalingo",
-      tagline: "Mastering the Mother Tongue.",
-      description:
-        "The deep-dive language engine. Rooted in Origin. Alpha testing in Luganda.",
-      status: "Alpha",
-      action: "Join the Beta",
-      link: "/gandalingo",
-      hasDetails: true,
-    },
-    {
       title: "Carthigan Studio",
       tagline: "Sound for the New Generation.",
       description:
@@ -54,11 +44,13 @@
   ];
 
   function handleAction(product: (typeof products)[0], e: Event) {
-    if (product.hasDetails && product.action !== "Join the Beta") {
-      // If we ever want the main action to go to the page instead of modal
+    if (product.action === "Join the Waitlist") {
+      e.preventDefault();
+      selectedProduct = product.title;
+      isModalOpen = true;
       return;
     }
-    if (product.action === "Technology") return;
+    if (product.hasDetails) return;
 
     e.preventDefault();
     selectedProduct = product.title;
@@ -143,7 +135,7 @@
 
   <div
     bind:this={gridRef}
-    class="grid md:grid-cols-2 gap-px bg-carthigan-charcoal/10 border border-carthigan-charcoal/10"
+    class="grid md:grid-cols-3 gap-px bg-carthigan-charcoal/10 border border-carthigan-charcoal/10"
   >
     {#each products as product}
       <div

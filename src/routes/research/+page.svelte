@@ -80,7 +80,7 @@
               <ul class="space-y-2 text-sm font-mono text-carthigan-charcoal/60 pt-2 border-l-2 border-carthigan-charcoal/10 pl-4">
                   <li>• RLHF with local linguistic experts</li>
                   <li>• Cultural alignment safety layers</li>
-                  <li>• Preserving oral histories via Gandalingo</li>
+                  <li>• Preserving oral histories and cultural heritage</li>
               </ul>
           </div>
 

@@ -40,7 +40,7 @@
               Digital infrastructure worldwide—our phones, our operating systems, our cloud services—is monopolized by a handful of centralized giants. Users and developers are digital tenants in their own tools.
           </p>
           <p>
-              Carthigan was founded to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from language engines to microkernels, we are engineering a truly independent technological future.
+              Carthigan was founded to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from high-efficiency audio engines to microkernels, we are engineering a truly independent technological future.
           </p>
       </div>
   </section>

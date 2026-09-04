@@ -39,9 +39,7 @@
           <p>
               Digital infrastructure worldwide—our phones, our operating systems, our cloud services—is monopolized by a handful of centralized giants. Users and developers are digital tenants in their own tools.
           </p>
-          <p>
-              Carthigan was founded to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from high-efficiency audio engines to microkernels, we are engineering a truly independent technological future.
-          </p>
+
       </div>
   </section>
 
@@ -52,7 +50,19 @@
                <h2 class="text-sm font-bold uppercase tracking-widest text-carthigan-charcoal/40">Leadership</h2>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-16">
+          <div class="grid md:grid-cols-3 gap-16">
+              <!-- Ruth -->
+              <div class="group space-y-6">
+                  <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+                       <div class="w-full h-full bg-cover bg-center" style="background-image: url('/ruth.jpg')"></div>
+                       <div class="absolute inset-0 bg-carthigan-charcoal/10 group-hover:bg-transparent transition-colors"></div>
+                  </div>
+                  <div class="space-y-2">
+                      <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">Nabusita Ruth</h3>
+                      <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Chief Executive Officer</div>
+                  </div>
+              </div>
+
               <!-- Eden -->
               <div class="group space-y-6">
                   <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
@@ -66,7 +76,7 @@
               </div>
 
               <!-- Joe -->
-              <div class="group space-y-6 md:mt-24"> <!-- Offset layout for interest -->
+              <div class="group space-y-6">
                   <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
                        <div class="w-full h-full bg-cover bg-center" style="background-image: url('/joe.jpg')"></div>
                         <div class="absolute inset-0 bg-carthigan-charcoal/10 group-hover:bg-transparent transition-colors"></div>

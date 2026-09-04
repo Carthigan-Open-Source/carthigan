@@ -65,13 +65,6 @@
     </div>
 
     <div class="flex flex-col items-end gap-2">
-      <div
-        class="flex items-center gap-2 text-sm font-medium tracking-widest uppercase text-carthigan-charcoal/80"
-      >
-        <span>Global</span>
-        <span class="text-carthigan-charcoal/30">•</span>
-        <span>Earth</span>
-      </div>
       <div class="text-sm text-carthigan-charcoal/40">
         &copy; {new Date().getFullYear()}
       </div>

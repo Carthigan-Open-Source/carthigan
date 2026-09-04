@@ -105,7 +105,7 @@
       bind:this={headlineRef}
       class="text-6xl md:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-tight"
     >
-      Built under the hardest<br />constraints on Earth.<br /><span class="text-carthigan-charcoal/40">That's the point.</span>
+      But!<br /><span class="text-carthigan-charcoal/40">That's the point.</span>
     </h1>
     <p
       bind:this={subtitleRef}

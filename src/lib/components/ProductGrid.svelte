@@ -41,6 +41,16 @@
       link: "/developers",
       hasDetails: true,
     },
+    {
+      title: "Carthigan Education",
+      tagline: "Understand the Future.",
+      description:
+        "Free, video-based courses for everyone. Starting with AI Literacy — no math degree required.",
+      status: "Coming Soon",
+      action: "Join the Waitlist",
+      link: "/education",
+      hasDetails: true,
+    },
   ];
 
   function handleAction(product: (typeof products)[0], e: Event) {
@@ -133,7 +143,7 @@
 
   <div
     bind:this={gridRef}
-    class="grid md:grid-cols-3 gap-px bg-carthigan-charcoal/10 border border-carthigan-charcoal/10"
+    class="grid md:grid-cols-2 gap-px bg-carthigan-charcoal/10 border border-carthigan-charcoal/10"
   >
     {#each products as product}
       <div

@@ -56,6 +56,11 @@
         <a href="/about" class="hover:text-carthigan-charcoal transition-colors"
           >About</a
         >
+        <a
+          href="/education"
+          class="hover:text-carthigan-charcoal transition-colors"
+          >Education</a
+        >
       </nav>
     </div>
 

@@ -119,7 +119,7 @@
         bind:this={headingRef}
         class="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight"
       >
-        Hardened by Constraint.<br />Engineered for the World.
+        Engineered for the World.
       </h2>
 
       <!-- Hand-drawn underline SVG -->

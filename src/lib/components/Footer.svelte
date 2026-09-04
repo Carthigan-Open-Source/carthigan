@@ -36,26 +36,44 @@
       </div>
 
       <!-- Navigation Links -->
-      <nav class="flex gap-6 text-sm font-medium text-carthigan-charcoal/70">
-        <a
-          href="/gandalingo"
-          class="hover:text-carthigan-charcoal transition-colors">Gandalingo</a
-        >
+      <nav class="flex flex-wrap gap-6 text-sm font-medium text-carthigan-charcoal/70">
         <a
           href="/studio"
           class="hover:text-carthigan-charcoal transition-colors">Studio</a
         >
         <a
+          href="/developers"
+          class="hover:text-carthigan-charcoal transition-colors">Developers</a
+        >
+        <a
+          href="/research"
+          class="hover:text-carthigan-charcoal transition-colors">Research</a
+        >
+        <a
           href="/education"
-          class="hover:text-carthigan-charcoal transition-colors"
-          >Education</a
+          class="hover:text-carthigan-charcoal transition-colors">Education</a
+        >
+        <a
+          href="/gandalingo"
+          class="hover:text-carthigan-charcoal transition-colors">Gandalingo</a
+        >
+        <a
+          href="/about"
+          class="hover:text-carthigan-charcoal transition-colors">About</a
         >
       </nav>
     </div>
 
     <div class="flex flex-col items-end gap-2">
-      <div class="text-sm text-carthigan-charcoal/40">
-        &copy; {new Date().getFullYear()}
+      <div
+        class="flex items-center gap-2 text-xs font-mono font-semibold tracking-widest uppercase text-carthigan-charcoal/70"
+      >
+        <span>Global</span>
+        <span class="text-carthigan-charcoal/30">•</span>
+        <span>Earth</span>
+      </div>
+      <div class="text-xs text-carthigan-charcoal/40 font-mono">
+        &copy; {new Date().getFullYear()} Carthigan Inc.
       </div>
     </div>
   </div>

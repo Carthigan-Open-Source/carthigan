@@ -83,7 +83,7 @@
                   </div>
                   <div class="space-y-2">
                       <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">Okurut Joe</h3>
-                      <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Co-Founder & CTO</div>
+                      <div class="text-sm font-mono text-carthigan-charcoal/50 uppercase tracking-wider">Chief Marketing Officer</div>
                   </div>
               </div>
           </div>

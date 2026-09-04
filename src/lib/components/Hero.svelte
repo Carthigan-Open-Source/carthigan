@@ -105,13 +105,13 @@
       bind:this={headlineRef}
       class="text-6xl md:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-tight"
     >
-      World-Class Engineering.<br />Built for the Planet.
+      Built under the hardest<br />constraints on Earth.<br /><span class="text-carthigan-charcoal/40">That's the point.</span>
     </h1>
     <p
       bind:this={subtitleRef}
       class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-3xl mx-auto leading-relaxed opacity-0"
     >
-      From high-performance audio synthesis to sovereign edge intelligence. Building technology without borders.
+      Micro-kernels. GPU frameworks. Free synthesis. Technology built from scratch, for everyone.
     </p>
   </div>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { fade, fly } from "svelte/transition";
-  import { onDestroy } from "svelte";
+  import { onDestroy, untrack } from "svelte";
 
   let isOpen = $state(false);
 
@@ -25,10 +25,12 @@
   let lastPath = "";
   $effect(() => {
     const currentPath = $page.url.pathname;
-    if (lastPath && currentPath !== lastPath && isOpen) {
-      close();
-    }
-    lastPath = currentPath;
+    untrack(() => {
+      if (lastPath && currentPath !== lastPath && isOpen) {
+        close();
+      }
+      lastPath = currentPath;
+    });
   });
 
   // Clean up overflow on destroy
@@ -50,7 +52,7 @@
 
 <!-- Header/Navigation Bar - floating pill on mobile, right half on desktop -->
 <header
-  class="fixed z-50 transition-all duration-300
+  class="fixed z-[100] transition-all duration-300
          top-4 left-4 right-4 rounded-full border border-carthigan-charcoal/10 bg-carthigan-cream/90 backdrop-blur-md shadow-lg shadow-carthigan-charcoal/5 px-4 py-2.5
          md:top-0 md:right-0 md:left-auto md:w-1/2 md:rounded-none md:rounded-bl-2xl md:border-none md:shadow-none md:px-6 md:py-4 md:bg-carthigan-cream/80"
 >
@@ -130,7 +132,7 @@
 <!-- Mobile Menu Overlay -->
 {#if isOpen}
   <div
-    class="fixed inset-0 z-40 bg-carthigan-cream md:hidden flex flex-col items-center justify-center px-6"
+    class="fixed inset-0 z-[90] bg-carthigan-cream md:hidden flex flex-col items-center justify-center px-6"
     transition:fade={{ duration: 200 }}
   >
     <nav

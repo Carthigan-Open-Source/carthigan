@@ -16,13 +16,13 @@
 <WaitlistModal bind:isOpen={isModalOpen} productName="Carthigan SDK" />
 
 <div class="bg-carthigan-cream min-h-screen font-sans">
-  <!-- Navigation -->
+  <!-- Navigation (Desktop only, mobile uses floating header) -->
   <nav
-    class="absolute top-0 left-0 w-full p-6 md:p-12 z-50 flex justify-between items-center"
+    class="hidden md:flex absolute top-0 left-0 w-full p-6 md:p-12 z-30 justify-between items-center pointer-events-none"
   >
     <a
       href="/"
-      class="text-sm font-bold uppercase tracking-widest text-carthigan-charcoal/40 hover:text-carthigan-charcoal transition-colors"
+      class="pointer-events-auto text-sm font-bold uppercase tracking-widest text-carthigan-charcoal/40 hover:text-carthigan-charcoal transition-colors"
     >
       ← Back to Carthigan
     </a>

@@ -166,10 +166,25 @@
         ></video>
       </div>
 
+      <!-- Pillar Video 3: Education -->
+      <div class="md:col-span-4 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
+        <video
+          class="absolute inset-0 w-full h-full object-cover"
+          src="/about-pillar-education.mp4"
+          poster="/about-pillar-education-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Ambient video on Carthigan Education"
+        ></video>
+      </div>
+
       <!-- Pillar 3: Carthigan Education -->
       <a
         href="/education"
-        class="md:col-span-5 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
+        class="md:col-span-8 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
       >
         <div class="space-y-4">
           <div class="flex items-center justify-between">
@@ -192,7 +207,7 @@
       <!-- Pillar 4: Sovereign Edge Intelligence -->
       <a
         href="/research"
-        class="md:col-span-7 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
+        class="md:col-span-12 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
       >
         <div class="space-y-4">
           <div class="flex items-center justify-between">

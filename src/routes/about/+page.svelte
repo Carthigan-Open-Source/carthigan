@@ -113,6 +113,21 @@
         </div>
       </a>
 
+      <!-- Pillar Video 1: Systems -->
+      <div class="md:col-span-4 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
+        <video
+          class="absolute inset-0 w-full h-full object-cover"
+          src="/about-pillar-systems.mp4"
+          poster="/about-pillar-systems-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Ambient video on Carthage systems engineering"
+        ></video>
+      </div>
+
       <!-- Pillar 2: Carthigan Studio -->
       <a
         href="/studio"
@@ -135,6 +150,21 @@
           </p>
         </div>
       </a>
+
+      <!-- Pillar Video 2: Studio -->
+      <div class="md:col-span-8 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
+        <video
+          class="absolute inset-0 w-full h-full object-cover"
+          src="/about-pillar-studio.mp4"
+          poster="/about-pillar-studio-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Ambient video on Carthigan Studio audio synthesis"
+        ></video>
+      </div>
 
       <!-- Pillar 3: Carthigan Education -->
       <a

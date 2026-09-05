@@ -11,6 +11,31 @@
     '#6B46C1', // Royal Heather Violet
     '#B83280', // Velvet Rose
   ];
+
+  const missionWords = [
+    'Our',
+    'mission',
+    'is',
+    'to',
+    'engineer',
+    'technological',
+    'sovereignty',
+    'from',
+    'silicon',
+    'to',
+    'software.'
+  ];
+
+  let charCount = 0;
+  const processedWords = missionWords.map((word) => {
+    const letters = word.split('').map((char) => {
+      const isPeriod = char === '.';
+      const index = isPeriod ? -1 : charCount++;
+      const color = isPeriod ? '#2A2A2A' : palette[index % palette.length];
+      return { char, index, color, isPeriod };
+    });
+    return { word, letters };
+  });
 </script>
 
 <svelte:head>
@@ -34,13 +59,20 @@
     <div class="space-y-8 animate-fade-in-up">
 
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-[0.95] max-w-6xl">
-        Our mission is to engineer
-        <span class="inline-block"><span style="color: {palette[0]}">t</span>echnological</span>
-        <span class="inline-block"><span style="color: {palette[2]}">s</span>overeignty</span>
-        from
-        <span class="inline-block"><span style="color: {palette[1]}">s</span>ilicon</span>
-        to
-        <span class="inline-block"><span style="color: {palette[5]}">s</span>oftware.</span>
+        {#each processedWords as { letters }, wIdx}
+          <span class="inline-block whitespace-nowrap">
+            {#each letters as { char, index, color, isPeriod }}
+              {#if isPeriod}
+                <span class="text-carthigan-charcoal">{char}</span>
+              {:else}
+                <span
+                  class="wave-letter"
+                  style="--char-i: {index}; --char-color: {color};"
+                >{char}</span>
+              {/if}
+            {/each}
+          </span>{#if wIdx < processedWords.length - 1}{' '}{/if}
+        {/each}
       </h1>
       
       <p class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-3xl leading-relaxed">
@@ -292,5 +324,40 @@
   }
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .wave-letter {
+    display: inline-block;
+    color: #2A2A2A;
+    animation: letterWave 7.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    animation-delay: calc(var(--char-i) * 0.055s);
+    will-change: color, transform;
+  }
+
+  @keyframes letterWave {
+    0% {
+      color: #2A2A2A;
+      transform: translateY(0);
+    }
+    1.5% {
+      color: var(--char-color);
+      transform: translateY(-1.5px);
+    }
+    4% {
+      color: var(--char-color);
+      transform: translateY(-1.5px);
+    }
+    6%, 100% {
+      color: #2A2A2A;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-letter {
+      animation: none !important;
+      color: #2A2A2A !important;
+      transform: none !important;
+    }
   }
 </style>

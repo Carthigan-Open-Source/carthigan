@@ -102,18 +102,18 @@
         <span class="pill-shimmer" aria-hidden="true"></span>
 
         {#each [
-          { char: 'C', tone: '#9B5A4E' },
-          { char: 'A', tone: '#967440' },
-          { char: 'R', tone: '#627B55' },
-          { char: 'T', tone: '#4E7A6C' },
-          { char: 'H', tone: '#497482' },
-          { char: 'I', tone: '#52668A' },
-          { char: 'G', tone: '#735C83' },
-          { char: 'A', tone: '#915A6E' },
-          { char: 'N', tone: '#9B5A4E' },
+          { char: 'C', tone: '#C05621' },
+          { char: 'A', tone: '#B7791F' },
+          { char: 'R', tone: '#2F855A' },
+          { char: 'T', tone: '#276749' },
+          { char: 'H', tone: '#285E61' },
+          { char: 'I', tone: '#2B6CB0' },
+          { char: 'G', tone: '#6B46C1' },
+          { char: 'A', tone: '#B83280' },
+          { char: 'N', tone: '#C05621' },
         ] as { char, tone }, i}
           <span
-            class="carthigan-letter text-carthigan-charcoal/60 relative z-10"
+            class="carthigan-letter text-carthigan-charcoal/60 relative z-10 transition-transform"
             style="--i: {i}; --letter-tone: {tone};"
           >{char}</span>
         {/each}
@@ -155,21 +155,21 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0) 20%,
-        rgba(255, 255, 255, 0.7) 50%,
-        rgba(42, 42, 42, 0.04) 60%,
+        rgba(255, 255, 255, 0.15) 25%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(42, 42, 42, 0.08) 60%,
         transparent 100%
       );
       transform: translateX(-100%);
       pointer-events: none;
-      animation: pillSweep 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: pillSweep 6.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
     }
 
     .carthigan-letter {
       display: inline-block;
-      animation: letterPulse 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      animation-delay: calc(var(--i) * 0.1s);
-      will-change: color;
+      animation: letterPulse 6.5s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.22s);
+      will-change: color, transform;
     }
   }
 
@@ -178,28 +178,35 @@
       transform: translateX(-100%);
       opacity: 0;
     }
-    3% {
+    4% {
       opacity: 1;
     }
-    22% {
-      transform: translateX(130%);
+    45% {
+      transform: translateX(140%);
       opacity: 1;
     }
-    23%, 100% {
-      transform: translateX(130%);
+    48%, 100% {
+      transform: translateX(140%);
       opacity: 0;
     }
   }
 
   @keyframes letterPulse {
     0% {
-      color: rgba(42, 42, 42, 0.6);
+      color: rgba(42, 42, 42, 0.55);
+      transform: translateY(0);
     }
-    4% {
+    6% {
       color: var(--letter-tone);
+      transform: translateY(-1px);
     }
-    9%, 100% {
-      color: rgba(42, 42, 42, 0.6);
+    14% {
+      color: var(--letter-tone);
+      transform: translateY(-1px);
+    }
+    22%, 100% {
+      color: rgba(42, 42, 42, 0.55);
+      transform: translateY(0);
     }
   }
 </style>

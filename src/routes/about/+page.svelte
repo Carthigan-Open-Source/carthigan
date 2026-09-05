@@ -21,9 +21,6 @@
   <!-- Hero Section (Google-Style Mission North Star) -->
   <header class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto border-b border-carthigan-charcoal/5">
     <div class="space-y-8 animate-fade-in-up">
-      <div class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-charcoal/50 border border-carthigan-charcoal/10 px-3 py-1 rounded-full">
-        Company Overview • Carthigan Inc.
-      </div>
 
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-[0.95] max-w-6xl">
         Our mission is to engineer technological sovereignty from silicon to software.

@@ -668,16 +668,16 @@
       </div>
 
       <div
-        class="p-12 border-2 border-green-600 rounded-2xl bg-carthigan-cream relative"
+        class="p-12 border-2 border-carthigan-charcoal rounded-2xl bg-carthigan-cream relative"
       >
         <span
-          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-sm uppercase tracking-widest font-bold px-6 py-2 rounded-full"
+          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-carthigan-charcoal text-carthigan-cream text-sm uppercase tracking-widest font-bold px-6 py-2 rounded-full"
         >
           Free Release
         </span>
 
         <div
-          class="text-6xl md:text-8xl font-display font-bold text-green-600 mb-4"
+          class="text-6xl md:text-8xl font-display font-bold text-carthigan-charcoal mb-4"
         >
           $0
         </div>

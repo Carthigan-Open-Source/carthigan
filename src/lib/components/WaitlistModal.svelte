@@ -176,7 +176,7 @@
       {#if success}
         <div bind:this={successRef} class="text-center py-8 space-y-4">
           <div
-            class="success-icon w-16 h-16 bg-green-100 text-green-800 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="success-icon w-16 h-16 bg-carthigan-charcoal text-carthigan-cream rounded-full flex items-center justify-center mx-auto mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

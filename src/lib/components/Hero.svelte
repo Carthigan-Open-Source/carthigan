@@ -96,9 +96,14 @@
     <div class="mb-4">
       <span
         bind:this={badgeRef}
-        class="inline-block text-sm uppercase tracking-[0.2em] text-carthigan-charcoal/60 border border-carthigan-charcoal/20 px-4 py-2 rounded-full opacity-0"
+        class="inline-flex items-center text-sm font-medium uppercase tracking-[0.25em] border border-carthigan-charcoal/20 px-4 py-2 rounded-full opacity-0 bg-white/40 backdrop-blur-sm shadow-sm"
       >
-        Carthigan
+        {#each 'CARTHIGAN'.split('') as letter, i}
+          <span
+            class="carthigan-letter text-carthigan-charcoal/60"
+            style="--i: {i};"
+          >{letter}</span>
+        {/each}
       </span>
     </div>
     <h1
@@ -126,3 +131,44 @@
     ></div>
   </div>
 </section>
+
+<style>
+  @media (min-width: 768px) {
+    .carthigan-letter {
+      display: inline-block;
+      animation: aestheticLetterFlow 6s linear infinite;
+      animation-delay: calc(var(--i) * -0.666s);
+      will-change: color;
+    }
+  }
+
+  @keyframes aestheticLetterFlow {
+    0% {
+      color: #E24A32; /* Terracotta / Crimson */
+    }
+    12.5% {
+      color: #E87A1E; /* Warm Tangerine */
+    }
+    25% {
+      color: #C79A0A; /* Warm Ochre */
+    }
+    37.5% {
+      color: #109462; /* Vivid Emerald */
+    }
+    50% {
+      color: #0A8C9E; /* Deep Sea Cyan */
+    }
+    62.5% {
+      color: #2F6FE4; /* Electric Cobalt */
+    }
+    75% {
+      color: #7943DF; /* Deep Iris Purple */
+    }
+    87.5% {
+      color: #D32E74; /* Velvet Magenta */
+    }
+    100% {
+      color: #E24A32;
+    }
+  }
+</style>

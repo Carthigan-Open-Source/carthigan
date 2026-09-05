@@ -156,9 +156,22 @@
   <section class="py-24 px-6 md:px-12 border-t border-carthigan-charcoal/5 bg-white/30">
     <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-start">
       <div class="md:col-span-4">
-        <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/40 sticky top-32">
-          The Origin
-        </h2>
+        <div class="md:sticky md:top-32 space-y-6">
+          <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/40">
+            The Origin
+          </h2>
+          <video
+            class="w-full aspect-video object-cover rounded-xl border border-carthigan-charcoal/10"
+            src="/about-origin.mp4"
+            poster="/about-origin-poster.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Ambient video on the origins of Carthigan"
+          ></video>
+        </div>
       </div>
       <div class="md:col-span-8 space-y-8 text-lg md:text-xl font-light leading-relaxed text-carthigan-charcoal/80">
         <p>

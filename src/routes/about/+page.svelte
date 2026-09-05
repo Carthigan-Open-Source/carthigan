@@ -35,32 +35,12 @@
 
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-[0.95] max-w-6xl">
         Our mission is to engineer
-        <span class="inline-block">
-          {#each 'technological'.split('') as char, i}
-            <span style="color: {palette[i % palette.length]}">{char}</span>
-          {/each}
-        </span>
-        <span class="inline-block">
-          {#each 'sovereignty'.split('') as char, i}
-            <span style="color: {palette[(i + 3) % palette.length]}">{char}</span>
-          {/each}
-        </span>
+        <span class="inline-block"><span style="color: {palette[0]}">t</span>echnological</span>
+        <span class="inline-block"><span style="color: {palette[2]}">s</span>overeignty</span>
         from
-        <span class="inline-block">
-          {#each 'silicon'.split('') as char, i}
-            <span style="color: {palette[(i + 1) % palette.length]}">{char}</span>
-          {/each}
-        </span>
+        <span class="inline-block"><span style="color: {palette[1]}">s</span>ilicon</span>
         to
-        <span class="inline-block">
-          {#each 'software.'.split('') as char, i}
-            {#if char === '.'}
-              <span class="text-carthigan-charcoal">{char}</span>
-            {:else}
-              <span style="color: {palette[(i + 4) % palette.length]}">{char}</span>
-            {/if}
-          {/each}
-        </span>
+        <span class="inline-block"><span style="color: {palette[5]}">s</span>oftware.</span>
       </h1>
       
       <p class="text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-3xl leading-relaxed">

@@ -1,63 +1,41 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { gsap, ANIMATION_CONFIG } from "$lib/gsap";
+  import { fade, fly } from "svelte/transition";
+  import { onDestroy } from "svelte";
 
   let isOpen = $state(false);
-  let overlayRef: HTMLElement | null = $state(null);
-  let navRef: HTMLElement | null = $state(null);
 
   function toggle() {
     isOpen = !isOpen;
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      // Animate in after next tick
-      requestAnimationFrame(() => {
-        if (overlayRef && navRef && gsap) {
-          // Animate overlay
-          gsap.fromTo(
-            overlayRef,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.3, ease: ANIMATION_CONFIG.ease.smooth }
-          );
-
-          // Animate nav links staggered
-          const links = navRef.querySelectorAll("a");
-          gsap.fromTo(
-            links,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.5,
-              stagger: 0.08,
-              ease: ANIMATION_CONFIG.ease.snap,
-            }
-          );
-        }
-      });
-    } else {
-      document.body.style.overflow = "";
-      // Animate out
-      if (overlayRef && gsap) {
-        gsap.to(overlayRef, {
-          opacity: 0,
-          duration: 0.2,
-          ease: ANIMATION_CONFIG.ease.smoothIn,
-        });
-      }
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }
   }
 
   function close() {
     if (isOpen) {
-      toggle();
+      isOpen = false;
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "";
+      }
     }
   }
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change only when pathname actually changes
+  let lastPath = "";
   $effect(() => {
-    $page.url.pathname;
-    close();
+    const currentPath = $page.url.pathname;
+    if (lastPath && currentPath !== lastPath && isOpen) {
+      close();
+    }
+    lastPath = currentPath;
+  });
+
+  // Clean up overflow on destroy
+  onDestroy(() => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
+    }
   });
 
   // Close menu on escape key
@@ -93,9 +71,19 @@
     <!-- Desktop Navigation - stays on the right -->
     <nav class="hidden md:flex items-center gap-8 ml-auto">
       <a
-        href="/about"
+        href="/studio"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >About</a
+        >Studio</a
+      >
+      <a
+        href="/education"
+        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
+        >Education</a
+      >
+      <a
+        href="/developers"
+        class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
+        >Developers</a
       >
       <a
         href="/research"
@@ -103,19 +91,20 @@
         >Research</a
       >
       <a
-        href="/developers"
+        href="/about"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >Developers</a
+        >About</a
       >
     </nav>
 
     <!-- Mobile Menu Button -->
     <button
       onclick={toggle}
-      class="md:hidden w-10 h-10 flex items-center justify-center"
+      class="md:hidden w-10 h-10 flex items-center justify-center relative z-50 cursor-pointer"
       aria-label={isOpen ? "Close menu" : "Open menu"}
+      type="button"
     >
-      <div class="relative w-6 h-5">
+      <div class="relative w-6 h-5 pointer-events-none">
         <span
           class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
             ? 'top-2 rotate-45'
@@ -139,32 +128,52 @@
 <!-- Mobile Menu Overlay -->
 {#if isOpen}
   <div
-    bind:this={overlayRef}
-    class="fixed inset-0 z-40 bg-carthigan-cream md:hidden"
-    style="opacity: 0;"
+    class="fixed inset-0 z-40 bg-carthigan-cream md:hidden flex flex-col items-center justify-center px-6"
+    transition:fade={{ duration: 200 }}
   >
     <nav
-      bind:this={navRef}
-      class="flex flex-col items-center justify-center h-full gap-8"
+      class="flex flex-col items-center justify-center gap-8 text-center"
     >
       <a
-        href="/about"
+        href="/studio"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >About</a
+        class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        in:fly={{ y: 20, duration: 300, delay: 50 }}
       >
+        Studio
+      </a>
       <a
-        href="/research"
+        href="/education"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >Research</a
+        class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        in:fly={{ y: 20, duration: 300, delay: 100 }}
       >
+        Education
+      </a>
       <a
         href="/developers"
         onclick={close}
-        class="text-3xl font-space-grotesk font-light text-carthigan-charcoal hover:opacity-60 transition-opacity"
-        >Developers</a
+        class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        in:fly={{ y: 20, duration: 300, delay: 150 }}
       >
+        Developers
+      </a>
+      <a
+        href="/research"
+        onclick={close}
+        class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        in:fly={{ y: 20, duration: 300, delay: 200 }}
+      >
+        Research
+      </a>
+      <a
+        href="/about"
+        onclick={close}
+        class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
+        in:fly={{ y: 20, duration: 300, delay: 250 }}
+      >
+        About
+      </a>
     </nav>
   </div>
 {/if}

@@ -48,22 +48,24 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<!-- Header/Navigation Bar - spans only right half on desktop -->
+<!-- Header/Navigation Bar - floating pill on mobile, right half on desktop -->
 <header
-  class="fixed top-0 right-0 md:left-auto md:w-1/2 left-0 z-50 px-6 py-4 bg-carthigan-cream/80 backdrop-blur-md md:rounded-bl-2xl"
+  class="fixed z-50 transition-all duration-300
+         top-4 left-4 right-4 rounded-full border border-carthigan-charcoal/10 bg-carthigan-cream/90 backdrop-blur-md shadow-lg shadow-carthigan-charcoal/5 px-4 py-2.5
+         md:top-0 md:right-0 md:left-auto md:w-1/2 md:rounded-none md:rounded-bl-2xl md:border-none md:shadow-none md:px-6 md:py-4 md:bg-carthigan-cream/80"
 >
   <div
     class="max-w-[1400px] mx-auto flex items-center justify-between md:justify-end"
   >
     <!-- Logo - only visible on mobile -->
-    <a href="/" class="group flex items-center gap-3 md:hidden">
+    <a href="/" onclick={close} class="group flex items-center gap-2.5 md:hidden pl-1">
       <img
         src="/favicon.svg"
         alt="Carthigan Logo"
-        class="w-8 h-8 transition-transform group-hover:rotate-12"
+        class="w-7 h-7 transition-transform group-hover:rotate-12"
       />
       <span
-        class="font-space-grotesk text-lg font-semibold tracking-tight text-carthigan-charcoal"
+        class="font-space-grotesk text-base font-semibold tracking-tight text-carthigan-charcoal"
         >Carthigan</span
       >
     </a>
@@ -100,25 +102,25 @@
     <!-- Mobile Menu Button -->
     <button
       onclick={toggle}
-      class="md:hidden w-10 h-10 flex items-center justify-center relative z-50 cursor-pointer"
+      class="md:hidden w-8 h-8 flex items-center justify-center relative z-50 cursor-pointer pr-1"
       aria-label={isOpen ? "Close menu" : "Open menu"}
       type="button"
     >
-      <div class="relative w-6 h-5 pointer-events-none">
+      <div class="relative w-5 h-4 pointer-events-none">
         <span
           class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
-            ? 'top-2 rotate-45'
+            ? 'top-1.5 rotate-45'
             : 'top-0 rotate-0'}"
         ></span>
         <span
-          class="absolute left-0 top-2 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
+          class="absolute left-0 top-1.5 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
             ? 'opacity-0'
             : 'opacity-100'}"
         ></span>
         <span
           class="absolute left-0 w-full h-0.5 bg-carthigan-charcoal transition-all duration-300 {isOpen
-            ? 'top-2 -rotate-45'
-            : 'top-4 rotate-0'}"
+            ? 'top-1.5 -rotate-45'
+            : 'top-3 rotate-0'}"
         ></span>
       </div>
     </button>

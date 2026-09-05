@@ -30,26 +30,6 @@
         We build metal-level computing systems, high-performance audio synthesis, and sovereign edge intelligence. Hardened by constraint, engineered for the planet.
       </p>
     </div>
-
-    <!-- Quick Telemetry Specs Bar (SpaceX / Google Hybrid) -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 mt-8 border-t border-carthigan-charcoal/5 text-sm font-mono">
-      <div>
-        <span class="block text-xs uppercase tracking-wider text-carthigan-charcoal/40">Core Latency</span>
-        <span class="text-lg font-bold text-carthigan-charcoal">0.1 ms Audio DSP</span>
-      </div>
-      <div>
-        <span class="block text-xs uppercase tracking-wider text-carthigan-charcoal/40">Memory Target</span>
-        <span class="text-lg font-bold text-carthigan-charcoal">&lt;45 KB Kernel</span>
-      </div>
-      <div>
-        <span class="block text-xs uppercase tracking-wider text-carthigan-charcoal/40">Edge Inference</span>
-        <span class="text-lg font-bold text-carthigan-charcoal">1.58-Bit Quantized</span>
-      </div>
-      <div>
-        <span class="block text-xs uppercase tracking-wider text-carthigan-charcoal/40">Tool Access</span>
-        <span class="text-lg font-bold text-carthigan-charcoal">100% Free Core</span>
-      </div>
-    </div>
   </header>
 
   <!-- Core Pillars: Google-Style Bento Grid -->

@@ -150,7 +150,7 @@
   <title>AI Literacy Course | Carthigan Education</title>
   <meta
     name="description"
-    content="Understand AI from the ground up. A free, video-based course for everyone — no math degree required. From neural networks to prompt engineering to the future of intelligence."
+    content="Understand AI from the ground up. A video-based course for everyone — no math degree required. From neural networks to prompt engineering to the future of intelligence."
   />
 </svelte:head>
 
@@ -265,7 +265,7 @@
               d="M2 12l10 5 10-5"
             ></path></svg
           >
-          <span>100% free</span>
+          <span>Learn at your pace</span>
         </div>
       </div>
     </div>
@@ -691,7 +691,7 @@
         Understand the technology<br />that's shaping your future.
       </h2>
       <p class="text-xl text-carthigan-cream/60 leading-relaxed">
-        Free video course. No sign-up walls. No premium tier. Just understanding.
+        Video-based learning. Sign up to get started and track your progress.
       </p>
       <div class="pt-4">
         <button

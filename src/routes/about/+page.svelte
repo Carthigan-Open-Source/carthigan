@@ -99,12 +99,6 @@
             Operating systems, CXX zero-overhead bridges, and hardware-accelerated WGPU rendering engines engineered in Rust and C++. Zero cloud reliance, zero framework bloat.
           </p>
         </div>
-
-        <div class="pt-8 flex flex-wrap gap-2 text-xs font-mono text-carthigan-charcoal/60">
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">Rust + C++</span>
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">WGPU 120 FPS</span>
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">Microkernel Core</span>
-        </div>
       </a>
 
       <!-- Pillar 2: Carthigan Studio -->
@@ -127,10 +121,6 @@
           <p class="text-carthigan-charcoal/70 font-light leading-relaxed">
             Professional VST plugins and 64-bit digital signal processing. NEST synthesizer brings studio-grade sound creation to everyone for free.
           </p>
-        </div>
-
-        <div class="pt-8 text-xs font-mono text-carthigan-charcoal/60">
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">NEST Synth • Free</span>
         </div>
       </a>
 
@@ -155,10 +145,6 @@
             First-principles video education. Starting with practical AI Literacy—demystifying neural networks and transformers without the math degree.
           </p>
         </div>
-
-        <div class="pt-8 text-xs font-mono text-carthigan-charcoal/60">
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">education.carthigan.com</span>
-        </div>
       </a>
 
       <!-- Pillar 4: Sovereign Edge Intelligence -->
@@ -181,11 +167,6 @@
           <p class="text-carthigan-charcoal/70 text-lg font-light leading-relaxed">
             Compiling ternary-weight LLMs to run locally on low-cost consumer hardware without internet connectivity. Preserving African and Bantu oral traditions through sovereign cultural datasets.
           </p>
-        </div>
-
-        <div class="pt-8 flex flex-wrap gap-2 text-xs font-mono text-carthigan-charcoal/60">
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">BitNet Kernels</span>
-          <span class="border border-carthigan-charcoal/10 px-3 py-1 rounded-full bg-carthigan-cream/50">Data Sovereignty</span>
         </div>
       </a>
     </div>

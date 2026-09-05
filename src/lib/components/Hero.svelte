@@ -96,13 +96,26 @@
     <div class="mb-4">
       <span
         bind:this={badgeRef}
-        class="inline-flex items-center text-sm font-medium uppercase tracking-[0.25em] border border-carthigan-charcoal/20 px-4 py-2 rounded-full opacity-0 bg-white/40 backdrop-blur-sm shadow-sm"
+        class="carthigan-pill relative overflow-hidden inline-flex items-center text-sm font-medium uppercase tracking-[0.25em] border border-carthigan-charcoal/20 px-4 py-2 rounded-full opacity-0 bg-white/40 backdrop-blur-sm shadow-sm"
       >
-        {#each 'CARTHIGAN'.split('') as letter, i}
+        <!-- Subtle ambient light sweep across the pill surface -->
+        <span class="pill-shimmer" aria-hidden="true"></span>
+
+        {#each [
+          { char: 'C', tone: '#9B5A4E' },
+          { char: 'A', tone: '#967440' },
+          { char: 'R', tone: '#627B55' },
+          { char: 'T', tone: '#4E7A6C' },
+          { char: 'H', tone: '#497482' },
+          { char: 'I', tone: '#52668A' },
+          { char: 'G', tone: '#735C83' },
+          { char: 'A', tone: '#915A6E' },
+          { char: 'N', tone: '#9B5A4E' },
+        ] as { char, tone }, i}
           <span
-            class="carthigan-letter text-carthigan-charcoal/60"
-            style="--i: {i};"
-          >{letter}</span>
+            class="carthigan-letter text-carthigan-charcoal/60 relative z-10"
+            style="--i: {i}; --letter-tone: {tone};"
+          >{char}</span>
         {/each}
       </span>
     </div>
@@ -134,41 +147,59 @@
 
 <style>
   @media (min-width: 768px) {
+    .pill-shimmer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(42, 42, 42, 0.04) 60%,
+        transparent 100%
+      );
+      transform: translateX(-100%);
+      pointer-events: none;
+      animation: pillSweep 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
     .carthigan-letter {
       display: inline-block;
-      animation: aestheticLetterFlow 6s linear infinite;
-      animation-delay: calc(var(--i) * -0.666s);
+      animation: letterPulse 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: calc(var(--i) * 0.1s);
       will-change: color;
     }
   }
 
-  @keyframes aestheticLetterFlow {
+  @keyframes pillSweep {
     0% {
-      color: #E24A32; /* Terracotta / Crimson */
+      transform: translateX(-100%);
+      opacity: 0;
     }
-    12.5% {
-      color: #E87A1E; /* Warm Tangerine */
+    3% {
+      opacity: 1;
     }
-    25% {
-      color: #C79A0A; /* Warm Ochre */
+    22% {
+      transform: translateX(130%);
+      opacity: 1;
     }
-    37.5% {
-      color: #109462; /* Vivid Emerald */
+    23%, 100% {
+      transform: translateX(130%);
+      opacity: 0;
     }
-    50% {
-      color: #0A8C9E; /* Deep Sea Cyan */
+  }
+
+  @keyframes letterPulse {
+    0% {
+      color: rgba(42, 42, 42, 0.6);
     }
-    62.5% {
-      color: #2F6FE4; /* Electric Cobalt */
+    4% {
+      color: var(--letter-tone);
     }
-    75% {
-      color: #7943DF; /* Deep Iris Purple */
-    }
-    87.5% {
-      color: #D32E74; /* Velvet Magenta */
-    }
-    100% {
-      color: #E24A32;
+    9%, 100% {
+      color: rgba(42, 42, 42, 0.6);
     }
   }
 </style>

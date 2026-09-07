@@ -97,14 +97,14 @@
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-[10px] font-mono uppercase tracking-widest text-carthigan-charcoal/40">
-              Pillar 01 • Humanity & Art
+              Pillar 01 • Humanity & Our Art
             </span>
             <span class="text-xs font-mono text-carthigan-charcoal/40 group-hover:text-carthigan-charcoal transition-colors">
               Explore Studio →
             </span>
           </div>
           <h3 class="text-3xl md:text-4xl font-display font-bold text-carthigan-charcoal group-hover:opacity-90">
-            Humanity and Their Art: Real-Time Sound Synthesis
+            Humanity and Our Art: Real-Time Sound Synthesis
           </h3>
           <p class="text-carthigan-charcoal/70 text-lg font-light leading-relaxed max-w-2xl">
             Professional VST instruments and 64-bit digital signal processing. We build tools that amplify human artistry rather than replacing it—putting studio-grade sound creation back into the hands of musicians and creators, 100% free.

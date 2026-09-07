@@ -338,7 +338,7 @@
         </div>
 
         <a
-          href="/about/leadership"
+          href="/company/leadership"
           class="px-8 py-4 bg-carthigan-cream text-carthigan-charcoal font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white transition-all hover:scale-105 inline-block text-center"
         >
           View Leadership →

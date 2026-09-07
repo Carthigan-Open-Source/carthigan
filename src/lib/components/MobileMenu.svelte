@@ -95,9 +95,9 @@
         >Research</a
       >
       <a
-        href="/about"
+        href="/company"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
-        >About</a
+        >Company</a
       >
     </nav>
 
@@ -171,12 +171,12 @@
         Research
       </a>
       <a
-        href="/about"
+        href="/company"
         onclick={close}
         class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
         in:fly={{ y: 20, duration: 300, delay: 250 }}
       >
-        About
+        Company
       </a>
     </nav>
   </div>

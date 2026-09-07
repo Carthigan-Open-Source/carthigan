@@ -89,69 +89,31 @@
     </div>
 
     <div class="grid md:grid-cols-12 gap-6">
-      <!-- Pillar 1: Carthage Systems (Large Card) -->
+      <!-- Pillar 1: Humanity & Art (Large Card) -->
       <a
-        href="/developers"
+        href="/studio"
         class="md:col-span-8 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
       >
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-[10px] font-mono uppercase tracking-widest text-carthigan-charcoal/40">
-              Pillar 01 • Systems & OS
+              Pillar 01 • Humanity & Art
             </span>
             <span class="text-xs font-mono text-carthigan-charcoal/40 group-hover:text-carthigan-charcoal transition-colors">
-              Explore Developers →
+              Explore Studio →
             </span>
           </div>
           <h3 class="text-3xl md:text-4xl font-display font-bold text-carthigan-charcoal group-hover:opacity-90">
-            Bare-Metal Microkernels & Native GPU Pipelines
+            Humanity and Their Art: Real-Time Sound Synthesis
           </h3>
           <p class="text-carthigan-charcoal/70 text-lg font-light leading-relaxed max-w-2xl">
-            Operating systems, CXX zero-overhead bridges, and hardware-accelerated WGPU rendering engines engineered in Rust and C++. Zero cloud reliance, zero framework bloat.
+            Professional VST instruments and 64-bit digital signal processing. We build tools that amplify human artistry rather than replacing it—putting studio-grade sound creation back into the hands of musicians and creators, 100% free.
           </p>
         </div>
       </a>
 
-      <!-- Pillar Video 1: Systems -->
+      <!-- Pillar Video 1: Studio -->
       <div class="md:col-span-4 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
-        <video
-          class="absolute inset-0 w-full h-full object-cover"
-          src="/about-pillar-systems.mp4"
-          poster="/about-pillar-systems-poster.jpg"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          aria-label="Ambient video on Carthage systems engineering"
-        ></video>
-      </div>
-
-      <!-- Pillar 2: Carthigan Studio -->
-      <a
-        href="/studio"
-        class="md:col-span-4 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
-      >
-        <div class="space-y-4">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-carthigan-charcoal/40">
-              Pillar 02 • Studio
-            </span>
-            <span class="text-xs font-mono text-carthigan-charcoal/40 group-hover:text-carthigan-charcoal transition-colors">
-              Explore →
-            </span>
-          </div>
-          <h3 class="text-3xl font-display font-bold text-carthigan-charcoal group-hover:opacity-90">
-            Real-Time Audio Synthesis
-          </h3>
-          <p class="text-carthigan-charcoal/70 font-light leading-relaxed">
-            Professional VST plugins and 64-bit digital signal processing. NEST synthesizer brings studio-grade sound creation to everyone for free.
-          </p>
-        </div>
-      </a>
-
-      <!-- Pillar Video 2: Studio -->
-      <div class="md:col-span-8 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
         <video
           class="absolute inset-0 w-full h-full object-cover"
           src="/about-pillar-studio.mp4"
@@ -162,6 +124,44 @@
           playsinline
           preload="metadata"
           aria-label="Ambient video on Carthigan Studio audio synthesis"
+        ></video>
+      </div>
+
+      <!-- Pillar 2: Systems & OS -->
+      <a
+        href="/developers"
+        class="md:col-span-4 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
+      >
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-carthigan-charcoal/40">
+              Pillar 02 • Systems & OS
+            </span>
+            <span class="text-xs font-mono text-carthigan-charcoal/40 group-hover:text-carthigan-charcoal transition-colors">
+              Explore Developers →
+            </span>
+          </div>
+          <h3 class="text-3xl font-display font-bold text-carthigan-charcoal group-hover:opacity-90">
+            Bare-Metal Microkernels & Native GPU Pipelines
+          </h3>
+          <p class="text-carthigan-charcoal/70 font-light leading-relaxed">
+            Operating systems, CXX zero-overhead bridges, and hardware-accelerated WGPU rendering engines engineered in Rust and C++. Zero cloud reliance, zero framework bloat.
+          </p>
+        </div>
+      </a>
+
+      <!-- Pillar Video 2: Systems -->
+      <div class="md:col-span-8 relative overflow-hidden rounded-xl border border-carthigan-charcoal/10 min-h-[280px]">
+        <video
+          class="absolute inset-0 w-full h-full object-cover"
+          src="/about-pillar-systems.mp4"
+          poster="/about-pillar-systems-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Ambient video on Carthage systems engineering"
         ></video>
       </div>
 

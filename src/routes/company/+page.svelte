@@ -127,7 +127,7 @@
         ></video>
       </div>
 
-      <!-- Pillar 2: Systems & OS -->
+      <!-- Pillar 2: A Unified Ecosystem -->
       <a
         href="/developers"
         class="md:col-span-4 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
@@ -135,17 +135,17 @@
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-[10px] font-mono uppercase tracking-widest text-carthigan-charcoal/40">
-              Pillar 02 • Systems & OS
+              Pillar 02 • A Unified Ecosystem
             </span>
             <span class="text-xs font-mono text-carthigan-charcoal/40 group-hover:text-carthigan-charcoal transition-colors">
               Explore Developers →
             </span>
           </div>
           <h3 class="text-3xl font-display font-bold text-carthigan-charcoal group-hover:opacity-90">
-            Bare-Metal Microkernels & Native GPU Pipelines
+            A Unified Ecosystem: Bare-Metal Microkernels & Native GPU Pipelines
           </h3>
           <p class="text-carthigan-charcoal/70 font-light leading-relaxed">
-            Operating systems, CXX zero-overhead bridges, and hardware-accelerated WGPU rendering engines engineered in Rust and C++. Zero cloud reliance, zero framework bloat.
+            Operating systems, CXX zero-overhead bridges, and hardware-accelerated WGPU rendering engines engineered in Rust and C++. A single cohesive, sovereign computing stack with zero cloud reliance and zero framework bloat.
           </p>
         </div>
       </a>

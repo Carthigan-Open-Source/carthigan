@@ -17,13 +17,12 @@
     'mission',
     'is',
     'to',
-    'engineer',
-    'technological',
-    'sovereignty',
-    'from',
-    'silicon',
-    'to',
-    'software.'
+    'put',
+    'technology',
+    'back',
+    'in',
+    "humanity's",
+    'hands.'
   ];
 
   let charCount = 0;
@@ -42,7 +41,7 @@
   <title>Company Overview | Carthigan</title>
   <meta
     name="description"
-    content="Our mission is to engineer technological sovereignty from silicon to software. Learn about Carthigan's core engineering pillars, company commitments, and leadership."
+    content="Our mission is to put technology back in humanity's hands. Learn about Carthigan's core engineering pillars, company commitments, and leadership."
   />
 </svelte:head>
 

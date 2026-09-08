@@ -1,9 +1,0 @@
-{
-	"rewrites": [
-		{
-			"source": "/",
-			"has": [{ "type": "host", "value": "education.carthigan.com" }],
-			"destination": "/education"
-		}
-	]
-}

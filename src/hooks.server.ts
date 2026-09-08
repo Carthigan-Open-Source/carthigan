@@ -10,6 +10,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const host = event.request.headers.get('host')?.split(':')[0] ?? '';
 	const target = HOST_ROUTES[host];
 
+	console.log(`[host-rewrite] host=${host} path=${event.url.pathname} target=${target ?? 'none'}`);
+
 	if (target && event.url.pathname === '/') {
 		event.url.pathname = target;
 	}

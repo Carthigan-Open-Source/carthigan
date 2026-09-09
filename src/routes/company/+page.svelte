@@ -182,7 +182,7 @@
 
       <!-- Pillar 3: Carthigan Education -->
       <a
-        href="https://education.carthigan.com/education"
+        href="https://education.carthigan.com/"
         class="md:col-span-8 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
       >
         <div class="space-y-4">

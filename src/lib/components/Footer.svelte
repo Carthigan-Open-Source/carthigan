@@ -42,7 +42,7 @@
           class="hover:text-carthigan-charcoal transition-colors">Studio</a
         >
         <a
-          href="https://education.carthigan.com/education"
+          href="https://education.carthigan.com/"
           class="hover:text-carthigan-charcoal transition-colors"
           >Education</a
         >

@@ -38,7 +38,7 @@
         "Free, video-based courses for everyone. Starting with AI Literacy — no math degree required.",
       status: "Coming Soon",
       action: "Join the Waitlist",
-      link: "https://education.carthigan.com/education",
+      link: "https://education.carthigan.com/",
       hasDetails: true,
     },
   ];

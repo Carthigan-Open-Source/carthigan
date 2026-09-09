@@ -80,7 +80,7 @@
         >Studio</a
       >
       <a
-        href="/education"
+        href="https://education.carthigan.com/education"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
         >Education</a
       >
@@ -147,7 +147,7 @@
         Studio
       </a>
       <a
-        href="/education"
+        href="https://education.carthigan.com/education"
         onclick={close}
         class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
         in:fly={{ y: 20, duration: 300, delay: 100 }}

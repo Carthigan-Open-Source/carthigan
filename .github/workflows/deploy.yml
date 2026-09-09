@@ -26,6 +26,9 @@ jobs:
       - name: Typecheck
         run: npm run check
 
+      - name: Build
+        run: npm run build
+
       - name: Build and deploy
         uses: cloudflare/wrangler-action@v3
         with:

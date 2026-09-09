@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "carthigan",
+  "compatibility_date": "2026-08-31",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "carthigan.com", "custom_domain": true },
+    { "pattern": "www.carthigan.com", "custom_domain": true },
+    { "pattern": "education.carthigan.com", "custom_domain": true }
+  ],
+  "preview_urls": true,
+  "observability": {
+    "enabled": true
+  }
+}

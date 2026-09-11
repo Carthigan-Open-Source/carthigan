@@ -5,16 +5,66 @@
   import Footer from "$lib/components/Footer.svelte";
 
   let isModalOpen = $state(false);
+  let selectedCourse = $state("Carthigan Education");
   let expandedModule = $state<number | null>(null);
 
   let heroRef: HTMLElement;
+  let coursesRef: HTMLElement;
   let modulesRef: HTMLElement;
   let formatRef: HTMLElement;
   let ctaRef: HTMLElement;
 
+  function openWaitlist(course: string) {
+    selectedCourse = course;
+    isModalOpen = true;
+  }
+
   function toggleModule(index: number) {
     expandedModule = expandedModule === index ? null : index;
   }
+
+  const courses = [
+    {
+      number: "01",
+      title: "AI Literacy",
+      description:
+        "Understand how AI actually works, use it effectively, and think critically about its impact. No math degree required.",
+      status: "Available Now",
+      available: true,
+      action: "View Curriculum",
+      anchor: "#modules",
+    },
+    {
+      number: "02",
+      title: "Programming Foundations",
+      description:
+        "Logic, Python, and how code actually runs. The prerequisite for everything technical we teach.",
+      status: "Coming Soon",
+      available: false,
+      action: "Join the Waitlist",
+      anchor: null,
+    },
+    {
+      number: "03",
+      title: "Edge AI",
+      description:
+        "Quantization, small models, and running intelligence on cheap hardware — no cloud required.",
+      status: "Coming Soon",
+      available: false,
+      action: "Join the Waitlist",
+      anchor: null,
+    },
+    {
+      number: "04",
+      title: "Hardware & Electronics",
+      description:
+        "Circuits, Arduino, and sensors — ending with a real health monitor you build yourself.",
+      status: "Coming Soon",
+      available: false,
+      action: "Join the Waitlist",
+      anchor: null,
+    },
+  ];
 
   const modules = [
     {
@@ -95,6 +145,23 @@
       stagger: 0.12,
     });
 
+    // Courses scroll reveal
+    const courseCards = coursesRef.querySelectorAll(".course-card");
+    gsap.set(courseCards, { opacity: 0, y: 40 });
+
+    gsap.to(courseCards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: ANIMATION_CONFIG.ease.smooth,
+      scrollTrigger: {
+        trigger: coursesRef,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
     // Modules scroll reveal
     const moduleCards = modulesRef.querySelectorAll(".module-card");
     gsap.set(moduleCards, { opacity: 0, y: 40 });
@@ -147,14 +214,14 @@
 </script>
 
 <svelte:head>
-  <title>AI Literacy Course | Carthigan Education</title>
+  <title>Carthigan Education | Learn How the World Works</title>
   <meta
     name="description"
-    content="Understand AI from the ground up. A video-based course for everyone — no math degree required. From neural networks to prompt engineering to the future of intelligence."
+    content="Video-based courses for everyone — AI Literacy, Programming Foundations, Edge AI, and Hardware & Electronics. Learn at your own pace."
   />
 </svelte:head>
 
-<WaitlistModal bind:isOpen={isModalOpen} productName="AI Literacy Course" />
+<WaitlistModal bind:isOpen={isModalOpen} productName={selectedCourse} />
 
 <div class="bg-carthigan-cream min-h-screen font-sans">
   <!-- Navigation (Desktop only, mobile uses floating header) -->
@@ -186,28 +253,28 @@
       <h1
         class="animate-item text-6xl md:text-8xl font-bold tracking-tighter text-carthigan-charcoal leading-[0.9]"
       >
-        AI Literacy<br /><span class="text-carthigan-charcoal/30">for Everyone</span>
+        Learn How<br />the World <span class="text-carthigan-charcoal/30">Works</span>
       </h1>
 
       <p
         class="animate-item text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-xl leading-relaxed"
       >
-        No math degree required. Understand how AI actually works, learn to use
-        it effectively, and think critically about its impact on your life.
+        Video-based courses for everyone — from understanding AI to programming,
+        edge intelligence, and real hardware. Learn at your own pace.
       </p>
 
       <div class="animate-item flex flex-col sm:flex-row gap-4 pt-4">
         <button
-          onclick={() => (isModalOpen = true)}
+          onclick={() => openWaitlist("Carthigan Education")}
           class="px-8 py-4 bg-carthigan-charcoal text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/90 transition-all hover:scale-105"
         >
           Join the Waitlist
         </button>
         <a
-          href="#modules"
+          href="#courses"
           class="px-8 py-4 border border-carthigan-charcoal/20 text-carthigan-charcoal font-bold uppercase tracking-widest hover:bg-carthigan-charcoal/5 transition-colors text-center"
         >
-          See the Curriculum
+          Browse Courses
         </a>
       </div>
 
@@ -229,7 +296,7 @@
               d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
             ></path></svg
           >
-          <span>5 modules, 20 lessons</span>
+          <span>4 courses</span>
         </div>
         <div class="flex items-center gap-2">
           <svg
@@ -246,7 +313,7 @@
               points="12 6 12 12 16 14"
             ></polyline></svg
           >
-          <span>~3 hours total</span>
+          <span>Video + text</span>
         </div>
         <div class="flex items-center gap-2">
           <svg
@@ -371,6 +438,112 @@
     </div>
   </section>
 
+  <!-- Courses -->
+  <section
+    id="courses"
+    bind:this={coursesRef}
+    class="py-24 px-6 md:px-12"
+  >
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <h2
+          class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/60 mb-4"
+        >
+          Courses
+        </h2>
+        <p
+          class="text-3xl md:text-4xl font-display font-bold text-carthigan-charcoal"
+        >
+          Start Anywhere. Go Deep.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-px bg-carthigan-charcoal/10 border border-carthigan-charcoal/10">
+        {#each courses as course}
+          <div
+            class="course-card group bg-carthigan-cream p-10 md:p-12 flex flex-col justify-between min-h-[380px]"
+          >
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <span
+                  class="text-4xl font-display font-bold text-carthigan-charcoal/10"
+                  >{course.number}</span
+                >
+                <span
+                  class="inline-block text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full {course.available
+                    ? 'text-white bg-green-600'
+                    : 'text-carthigan-charcoal/50 border border-carthigan-charcoal/10'}"
+                >
+                  {course.status}
+                </span>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-3xl font-display font-bold text-carthigan-charcoal">
+                  {course.title}
+                </h3>
+              </div>
+
+              <p
+                class="font-light text-carthigan-charcoal/80 leading-relaxed max-w-sm"
+              >
+                {course.description}
+              </p>
+            </div>
+
+            <div class="mt-12">
+              {#if course.available}
+                <a
+                  href={course.anchor}
+                  class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:opacity-70 transition-opacity cursor-pointer"
+                >
+                  {course.action}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4 transition-transform group-hover:translate-x-2"
+                    ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                      points="12 5 19 12 12 19"
+                    ></polyline></svg
+                  >
+                </a>
+              {:else}
+                <button
+                  onclick={() => openWaitlist(course.title)}
+                  class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:opacity-70 transition-opacity cursor-pointer"
+                >
+                  {course.action}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4 transition-transform group-hover:translate-x-2"
+                    ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                      points="12 5 19 12 12 19"
+                    ></polyline></svg
+                  >
+                </button>
+              {/if}
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+
   <!-- Course Modules -->
   <section
     id="modules"
@@ -382,7 +555,7 @@
         <h2
           class="text-sm font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/60 mb-4"
         >
-          Curriculum
+          Featured Course · AI Literacy
         </h2>
         <p
           class="text-3xl md:text-4xl font-display font-bold text-carthigan-charcoal"
@@ -695,7 +868,7 @@
       </p>
       <div class="pt-4">
         <button
-          onclick={() => (isModalOpen = true)}
+          onclick={() => openWaitlist("Carthigan Education")}
           class="px-10 py-5 bg-carthigan-cream text-carthigan-charcoal font-bold uppercase tracking-widest hover:bg-white transition-all hover:scale-105 text-lg"
         >
           Join the Waitlist

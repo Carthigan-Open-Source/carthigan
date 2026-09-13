@@ -217,7 +217,7 @@
   <title>Carthigan Education | Learn How the World Works</title>
   <meta
     name="description"
-    content="Video-based courses for everyone — AI Literacy, Programming Foundations, Edge AI, and Hardware & Electronics. Learn at your own pace."
+    content="Video-based courses for everyone: AI Literacy, Programming Foundations, Edge AI, and Hardware & Electronics. Learn at your own pace."
   />
 </svelte:head>
 
@@ -259,7 +259,7 @@
       <p
         class="animate-item text-xl md:text-2xl font-light text-carthigan-charcoal/80 max-w-xl leading-relaxed"
       >
-        Video-based courses for everyone — from understanding AI to programming,
+        Video-based courses for everyone, from understanding AI to programming,
         edge intelligence, and real hardware. Learn at your own pace.
       </p>
 
@@ -372,7 +372,7 @@
           </div>
           <h3 class="text-2xl font-display font-bold">Students</h3>
           <p class="text-carthigan-charcoal/70 leading-relaxed">
-            Secondary school or university — anyone who wants to understand the
+            Secondary school or university, anyone who wants to understand the
             technology shaping their future before choosing a career path.
           </p>
         </div>
@@ -399,7 +399,7 @@
           </div>
           <h3 class="text-2xl font-display font-bold">Professionals</h3>
           <p class="text-carthigan-charcoal/70 leading-relaxed">
-            Teachers, doctors, lawyers, journalists — anyone whose work is being
+            Teachers, doctors, lawyers, journalists, anyone whose work is being
             changed by AI and needs to understand it to stay ahead.
           </p>
         </div>

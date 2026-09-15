@@ -6,6 +6,7 @@
   let { isOpen = $bindable(false), productName = "" } = $props();
 
   let email = $state("");
+  let phone = $state("");
   let loading = $state(false);
   let success = $state(false);
   let error = $state("");
@@ -76,13 +77,18 @@
 
     try {
       const cleanEmail = email.trim();
+      const cleanPhone = phone.trim();
       if (!cleanEmail) throw new Error("Email is required");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(cleanEmail))
         throw new Error("Please enter a valid email address");
+      if (!cleanPhone) throw new Error("Phone number is required");
+      if (!/^\+?[\d\s\-()]{7,20}$/.test(cleanPhone))
+        throw new Error("Please enter a valid phone number");
       if (!db) throw new Error("Database not initialized");
 
       await addDoc(collection(db, "waitlist"), {
         email: cleanEmail,
+        phone: cleanPhone,
         product: productName || "General",
         timestamp: serverTimestamp(),
         deviceInfo: navigator.userAgent,
@@ -90,6 +96,7 @@
 
       success = true;
       email = "";
+      phone = "";
       setTimeout(() => {
         closeModal();
       }, 3000);
@@ -227,6 +234,20 @@
                 bind:value={email}
                 placeholder="name@example.com"
                 required
+                autocomplete="email"
+                class="w-full bg-white border border-carthigan-charcoal/20 px-4 py-3 text-carthigan-charcoal placeholder:text-carthigan-charcoal/30 focus:outline-none focus:border-carthigan-charcoal transition-colors"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label for="phone" class="sr-only">Phone number</label>
+              <input
+                type="tel"
+                id="phone"
+                bind:value={phone}
+                placeholder="+256 700 000000"
+                required
+                autocomplete="tel"
                 class="w-full bg-white border border-carthigan-charcoal/20 px-4 py-3 text-carthigan-charcoal placeholder:text-carthigan-charcoal/30 focus:outline-none focus:border-carthigan-charcoal transition-colors"
               />
             </div>

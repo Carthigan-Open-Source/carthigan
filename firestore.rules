@@ -12,12 +12,15 @@ service cloud.firestore {
       allow create: if
         // exact shape — no extra fields
         request.resource.data.keys().hasOnly(
-          ['email', 'product', 'timestamp', 'deviceInfo']
+          ['email', 'phone', 'product', 'timestamp', 'deviceInfo']
         )
         // valid-looking email, bounded length
         && request.resource.data.email is string
         && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
         && request.resource.data.email.size() <= 254
+        // phone number, required, bounded length
+        && request.resource.data.phone is string
+        && request.resource.data.phone.matches('^\\+?[0-9 \\-()]{7,20}$')
         // product tag, bounded length
         && request.resource.data.product is string
         && request.resource.data.product.size() <= 100

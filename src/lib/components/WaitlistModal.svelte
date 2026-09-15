@@ -75,11 +75,14 @@
     error = "";
 
     try {
-      if (!email) throw new Error("Email is required");
+      const cleanEmail = email.trim();
+      if (!cleanEmail) throw new Error("Email is required");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(cleanEmail))
+        throw new Error("Please enter a valid email address");
       if (!db) throw new Error("Database not initialized");
 
       await addDoc(collection(db, "waitlist"), {
-        email,
+        email: cleanEmail,
         product: productName || "General",
         timestamp: serverTimestamp(),
         deviceInfo: navigator.userAgent,

@@ -18,7 +18,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// The developers section lives only on its subdomain. Any /developers
 	// path (on any host, including the subdomain itself) redirects to the
 	// canonical root so the section exists in exactly one place.
-	if (pathname === '/developers' || pathname.startsWith('/developers/')) {
+	// Internal subrequests (event.fetch rewrites for subdomain roots) are
+	// exempt, otherwise the subdomain root would redirect to itself forever.
+	if (!event.isSubRequest && (pathname === '/developers' || pathname.startsWith('/developers/'))) {
 		return Response.redirect(`https://${DEVELOPERS_HOST}/`, 308);
 	}
 

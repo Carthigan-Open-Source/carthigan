@@ -87,13 +87,13 @@
               <g transform="translate(0, 44)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0s" /></g>
               <g transform="translate(0, 45)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0.46153846153846156s" /></g>
               <g transform="translate(0, 46)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0.9230769230769231s" /></g>
-              <g transform="translate(0, 47)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -1.3846153846153846s" /></g>
+              <g transform="translate(0, 47)"><path class="dev-waves-accent" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -1.3846153846153846s" /></g>
               <g transform="translate(0, 48)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -1.8461538461538463s" /></g>
               <g transform="translate(0, 49)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -2.307692307692308s" /></g>
               <g transform="translate(0, 50)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -2.769230769230769s" /></g>
               <g transform="translate(0, 51)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -3.230769230769231s" /></g>
               <g transform="translate(0, 52)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -3.6923076923076925s" /></g>
-              <g transform="translate(0, 53)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -4.153846153846154s" /></g>
+              <g transform="translate(0, 53)"><path class="dev-waves-accent" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -4.153846153846154s" /></g>
               <g transform="translate(0, 54)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -4.615384615384616s" /></g>
               <g transform="translate(0, 55)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -5.0769230769230775s" /></g>
               <g transform="translate(0, 56)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -5.538461538461538s" /></g>
@@ -288,6 +288,12 @@
   .dev-waves-path {
     stroke: #2a2a2a;
     stroke-width: 0.2;
+    fill: none;
+    animation: dev-waves-drift 3s ease-in-out alternate infinite;
+  }
+  .dev-waves-accent {
+    stroke: #16a34a;
+    stroke-width: 0.35;
     fill: none;
     animation: dev-waves-drift 3s ease-in-out alternate infinite;
   }

@@ -30,6 +30,7 @@
 
   <!-- Hero Section -->
   <header class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+    <div class="grid items-center gap-12 md:grid-cols-[1.15fr_1fr]">
     <div class="space-y-8 animate-fade-in-up">
       <div
         class="inline-flex items-center gap-3 px-4 py-2 bg-carthigan-charcoal text-carthigan-cream text-xs font-mono rounded-md"
@@ -64,6 +65,42 @@
         >
           Read Documentation
         </a>
+      </div>
+    </div>
+      <div class="animate-fade-in-up relative mx-auto w-full max-w-sm md:max-w-none">
+        <div class="overflow-hidden rounded-xl border border-carthigan-charcoal/10 bg-white">
+          <!-- Vertical wave art, adapted from Andrew Hoyer (MIT License, (c) 2018-present Andrew Hoyer). Source: https://github.com/ndrwhr/svg-animation-src/tree/master/site/_svgs/generators/animations/25/a.js -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid meet"
+            class="dev-waves h-auto w-full"
+            role="img"
+            aria-label="Animated vertical waves"
+          >
+            <defs>
+              <clipPath id="dev-waves-mask">
+                <rect height="100" width="100" x="0" y="0" />
+              </clipPath>
+            </defs>
+            <g clip-path="url(#dev-waves-mask)">
+              <g transform="translate(0, 44)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0s" /></g>
+              <g transform="translate(0, 45)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0.46153846153846156s" /></g>
+              <g transform="translate(0, 46)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -0.9230769230769231s" /></g>
+              <g transform="translate(0, 47)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -1.3846153846153846s" /></g>
+              <g transform="translate(0, 48)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -1.8461538461538463s" /></g>
+              <g transform="translate(0, 49)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -2.307692307692308s" /></g>
+              <g transform="translate(0, 50)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -2.769230769230769s" /></g>
+              <g transform="translate(0, 51)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -3.230769230769231s" /></g>
+              <g transform="translate(0, 52)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -3.6923076923076925s" /></g>
+              <g transform="translate(0, 53)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -4.153846153846154s" /></g>
+              <g transform="translate(0, 54)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -4.615384615384616s" /></g>
+              <g transform="translate(0, 55)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -5.0769230769230775s" /></g>
+              <g transform="translate(0, 56)"><path class="dev-waves-path" d="M-50,0 h50 h10 c32,0 24,-20 40,-20 c16,0 8,20 40,20 h10 h50" style="animation-delay: -5.538461538461538s" /></g>
+            </g>
+          </svg>
+        </div>
+        <p class="mt-4 text-center text-xs uppercase tracking-[0.3em] text-carthigan-charcoal/40">Drawn with code, running everywhere</p>
       </div>
     </div>
   </header>
@@ -243,5 +280,22 @@
   }
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+  }
+  .dev-waves {
+    transform: rotate(90deg);
+  }
+  .dev-waves-path {
+    stroke: #2a2a2a;
+    stroke-width: 0.2;
+    fill: white;
+    animation: dev-waves-drift 3s ease-in-out alternate infinite;
+  }
+  @keyframes dev-waves-drift {
+    from {
+      transform: translate(-8%, 0);
+    }
+    to {
+      transform: translate(8%, 0);
+    }
   }
 </style>

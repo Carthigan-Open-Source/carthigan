@@ -5,7 +5,8 @@ import type { Handle } from '@sveltejs/kit';
 // route, so instead of rewriting (which the router ignores) we fulfil the
 // request with an internal subrequest to the target route.
 const HOST_ROOT_ROUTES: Record<string, string> = {
-	'education.carthigan.com': '/education'
+	'education.carthigan.com': '/education',
+	'developers.carthigan.com': '/developers'
 };
 
 export const handle: Handle = async ({ event, resolve }) => {

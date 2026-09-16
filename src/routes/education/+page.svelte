@@ -340,7 +340,7 @@
       <div class="animate-item relative">
         <div class="relative overflow-hidden rounded-2xl bg-carthigan-cream">
           <img
-            src="https://wallpapers.hel1.your-objectstorage.com/light/monochrome/1920x1080_anime_a_drawing_of_a_horse_carriage_on_a_bridge.jpg"
+            src="/education-hero.jpg"
             alt="Horse carriage crossing a bridge, hand drawn illustration"
             loading="eager"
             class="h-auto w-full object-cover mix-blend-multiply grayscale [mask-image:linear-gradient(to_bottom,black_72%,transparent_98%)]"

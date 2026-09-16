@@ -88,7 +88,7 @@
                 NEST Synthesizer
               </h3>
               <p class="text-lg font-medium italic text-carthigan-charcoal/60">
-                Now Available—100% Free.
+                Now Available. 100% Free.
               </p>
             </div>
 

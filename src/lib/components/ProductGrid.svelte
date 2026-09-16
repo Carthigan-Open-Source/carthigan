@@ -15,7 +15,7 @@
       title: "Carthigan Studio",
       tagline: "Sound for the New Generation.",
       description:
-        "Professional VST plugins powered by Carthage Architecture. NEST synthesizer now available—100% FREE.",
+        "Professional VST plugins powered by Carthage Architecture. NEST synthesizer now available. 100% FREE.",
       status: "Free Release",
       action: "Download Free",
       link: "/studio",
@@ -35,7 +35,7 @@
       title: "Carthigan Education",
       tagline: "Understand the Future.",
       description:
-        "Free, video-based courses for everyone. Starting with AI Literacy — no math degree required.",
+        "Free, video-based courses for everyone. Starting with AI Literacy, no math degree required.",
       status: "Coming Soon",
       action: "Join the Waitlist",
       link: "https://education.carthigan.com/",

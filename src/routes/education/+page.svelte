@@ -48,7 +48,7 @@
       number: "03",
       title: "Edge AI",
       description:
-        "Quantization, small models, and running intelligence on cheap hardware — no cloud required.",
+        "Quantization, small models, and running intelligence on cheap hardware, no cloud required.",
       status: "Coming Soon",
       available: false,
       action: "Join the Waitlist",
@@ -58,7 +58,7 @@
       number: "04",
       title: "Hardware & Electronics",
       description:
-        "Circuits, Arduino, and sensors — ending with a real health monitor you build yourself.",
+        "Circuits, Arduino, and sensors, ending with a real health monitor you build yourself.",
       status: "Coming Soon",
       available: false,
       action: "Join the Waitlist",
@@ -83,7 +83,7 @@
       number: "02",
       title: "How Large Language Models Work",
       description:
-        "Understand how ChatGPT, Claude, and Gemini actually function under the hood — without needing a math degree.",
+        "Understand how ChatGPT, Claude, and Gemini actually function under the hood, without needing a math degree.",
       lessons: [
         "Tokens: How AI Reads and Breaks Down Language",
         "Attention: How AI Understands Context",
@@ -119,7 +119,7 @@
       number: "05",
       title: "The Future",
       description:
-        "Where AI is heading — from phones that think for themselves to models that run without the internet.",
+        "Where AI is heading, from phones that think for themselves to models that run without the internet.",
       lessons: [
         "Edge AI: Running Intelligence on Your Phone Without the Cloud",
         "1-Bit Models and Extreme Quantization",

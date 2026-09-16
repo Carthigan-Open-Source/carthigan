@@ -91,7 +91,7 @@
         "We do not ask for a seat at the table.<br/>We are building our own table, <br/>using our own wood."
       </p>
       <div class="text-xs font-bold uppercase tracking-[0.3em] opacity-50">
-        — The Carthigan Manifesto
+        The Carthigan Manifesto
       </div>
     </div>
   </section>

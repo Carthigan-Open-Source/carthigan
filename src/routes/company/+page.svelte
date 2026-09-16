@@ -107,7 +107,7 @@
             Humanity and Our Art: Real-Time Sound Synthesis
           </h3>
           <p class="text-carthigan-charcoal/70 text-lg font-light leading-relaxed max-w-2xl">
-            Professional VST instruments and 64-bit digital signal processing. We build tools that amplify human artistry rather than replacing it—putting studio-grade sound creation back into the hands of musicians and creators, 100% free.
+            Professional VST instruments and 64-bit digital signal processing. We build tools that amplify human artistry rather than replacing it, putting studio-grade sound creation back into the hands of musicians and creators, 100% free.
           </p>
         </div>
       </a>
@@ -198,7 +198,7 @@
             Carthigan Education
           </h3>
           <p class="text-carthigan-charcoal/70 font-light leading-relaxed">
-            First-principles video education. Starting with practical AI Literacy—demystifying neural networks and transformers without the math degree.
+            First-principles video education. Starting with practical AI Literacy, demystifying neural networks and transformers without the math degree.
           </p>
         </div>
       </a>
@@ -254,7 +254,7 @@
           <strong class="font-medium text-carthigan-charcoal">It started with a contradiction.</strong>
         </p>
         <p>
-          Digital infrastructure worldwide—our phones, our operating systems, our cloud services—is monopolized by a handful of centralized giants. Users and developers are digital tenants in their own tools.
+          Digital infrastructure worldwide, our phones, our operating systems, our cloud services, is monopolized by a handful of centralized giants. Users and developers are digital tenants in their own tools.
         </p>
         <p>
           Carthigan was founded to resolve this. We believe that true sovereignty isn't just about borders; it's about the silicon in your pocket and the code that runs it. By building everything from high-efficiency audio engines to microkernels, we are engineering a truly independent technological future.
@@ -353,7 +353,7 @@
         "We do not ask for a seat at the table.<br/>We are building our own table, using our own wood."
       </p>
       <div class="text-xs font-bold uppercase tracking-[0.3em] text-carthigan-charcoal/40">
-        — The Carthigan Manifesto
+        The Carthigan Manifesto
       </div>
     </div>
   </section>

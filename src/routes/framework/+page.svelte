@@ -751,9 +751,9 @@ cd Carthage-CLI/templates/basic</pre>
                 Controls
               </div>
               <ul class="text-sm space-y-1">
-                <li>Space — Play/Stop</li>
-                <li>Meters — Levels</li>
-                <li>Params — Smooth</li>
+                <li>Space: Play/Stop</li>
+                <li>Meters: Levels</li>
+                <li>Params: Smooth</li>
               </ul>
             </div>
             <div

@@ -129,7 +129,7 @@
 
       <!-- Pillar 2: A Unified Ecosystem -->
       <a
-        href="/developers"
+        href="https://developers.carthigan.com/"
         class="md:col-span-4 group bg-white/50 border border-carthigan-charcoal/10 p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-all hover:shadow-xl relative overflow-hidden"
       >
         <div class="space-y-4">

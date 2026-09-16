@@ -9,11 +9,22 @@ const HOST_ROOT_ROUTES: Record<string, string> = {
 	'developers.carthigan.com': '/developers'
 };
 
+const DEVELOPERS_HOST = 'developers.carthigan.com';
+
 export const handle: Handle = async ({ event, resolve }) => {
 	const host = event.request.headers.get('host')?.split(':')[0] ?? '';
+	const pathname = event.url.pathname;
+
+	// The developers section lives only on its subdomain. Any /developers
+	// path (on any host, including the subdomain itself) redirects to the
+	// canonical root so the section exists in exactly one place.
+	if (pathname === '/developers' || pathname.startsWith('/developers/')) {
+		return Response.redirect(`https://${DEVELOPERS_HOST}/`, 308);
+	}
+
 	const target = HOST_ROOT_ROUTES[host];
 
-	if (target && event.url.pathname === '/' && event.request.method === 'GET') {
+	if (target && pathname === '/' && event.request.method === 'GET') {
 		return await event.fetch(target);
 	}
 

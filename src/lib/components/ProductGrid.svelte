@@ -28,7 +28,7 @@
         "Carthage OS and our custom Rust/Go mobile framework for high-efficiency computing.",
       status: "Research",
       action: "Technology",
-      link: "/developers",
+      link: "https://developers.carthigan.com/",
       hasDetails: true,
     },
     {

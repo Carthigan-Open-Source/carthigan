@@ -85,7 +85,7 @@
         >Education</a
       >
       <a
-        href="/developers"
+        href="https://developers.carthigan.com/"
         class="text-sm text-carthigan-charcoal/70 hover:text-carthigan-charcoal transition-colors"
         >Developers</a
       >
@@ -155,7 +155,7 @@
         Education
       </a>
       <a
-        href="/developers"
+        href="https://developers.carthigan.com/"
         onclick={close}
         class="text-3xl font-display font-medium text-carthigan-charcoal hover:opacity-60 transition-opacity"
         in:fly={{ y: 20, duration: 300, delay: 150 }}

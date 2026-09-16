@@ -47,7 +47,7 @@
           >Education</a
         >
         <a
-          href="/developers"
+          href="https://developers.carthigan.com/"
           class="hover:text-carthigan-charcoal transition-colors"
           >Developers</a
         >

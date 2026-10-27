@@ -186,7 +186,7 @@
   <section
     class="py-24 px-6 md:px-12 bg-white/50 border-y border-carthigan-charcoal/5"
   >
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
       <div class="space-y-4">
         <h3 class="text-2xl font-display font-bold">Carthage Architecture</h3>
         <p class="text-carthigan-charcoal/70 leading-relaxed">
@@ -199,13 +199,6 @@
         <p class="text-carthigan-charcoal/70 leading-relaxed">
           From wavetable morphing to granular processing. Our engines are
           written in Rust for zero-latency performance.
-        </p>
-      </div>
-      <div class="space-y-4">
-        <h3 class="text-2xl font-display font-bold">Afro-Rhythm Library</h3>
-        <p class="text-carthigan-charcoal/70 leading-relaxed">
-          Pre-loaded with 5,000+ loops and samples from across the continent.
-          From Amapiano shakers to Highlife guitars.
         </p>
       </div>
     </div>

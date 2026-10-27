@@ -38,7 +38,7 @@
       <!-- Navigation Links -->
       <nav class="flex gap-6 text-sm font-medium text-carthigan-charcoal/70">
         <a
-          href="/studio"
+          href="https://carthigan.com/studio"
           class="hover:text-carthigan-charcoal transition-colors">Studio</a
         >
         <a

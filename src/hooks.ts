@@ -10,8 +10,20 @@ const HOST_ROOT_ROUTES: Record<string, string> = {
 	'developers.carthigan.com': '/developers'
 };
 
+// Clean short paths on a subdomain that resolve to a full route.
+const HOST_PATH_ALIASES: Record<string, Record<string, string>> = {
+	'education.carthigan.com': {
+		'/assembly-book': '/education/assembly-book'
+	}
+};
+
 export const reroute: Reroute = ({ url }) => {
 	if (url.pathname === '/') {
 		return HOST_ROOT_ROUTES[url.hostname];
+	}
+
+	const alias = HOST_PATH_ALIASES[url.hostname]?.[url.pathname];
+	if (alias) {
+		return alias;
 	}
 };

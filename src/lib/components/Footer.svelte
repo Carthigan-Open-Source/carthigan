@@ -51,6 +51,11 @@
           class="hover:text-carthigan-charcoal transition-colors"
           >Developers</a
         >
+        <a
+          href="https://carthigan.com/education/assembly-book"
+          class="hover:text-carthigan-charcoal transition-colors"
+          >Free Book</a
+        >
       </nav>
     </div>
 

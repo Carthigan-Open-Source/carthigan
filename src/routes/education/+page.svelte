@@ -453,6 +453,65 @@
     </div>
   </section>
 
+  <!-- Featured Book -->
+  <section class="py-20 px-6 md:px-12 bg-carthigan-charcoal text-carthigan-cream">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-5 gap-12 items-center">
+        <div class="md:col-span-3 space-y-6">
+          <div>
+            <span
+              class="inline-block text-[10px] uppercase tracking-widest font-bold text-carthigan-cream/60 border border-carthigan-cream/20 px-3 py-1 rounded-full"
+            >
+              New · Free Book
+            </span>
+          </div>
+
+          <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tighter leading-tight">
+            The No-Nonsense Guide to<br />Assembly
+          </h2>
+
+          <p class="text-lg text-carthigan-cream/60 max-w-lg leading-relaxed">
+            A 377-page hands-on course in x86-64 assembly. From CPU anatomy
+            to a 512-byte bootable operating system, every program verified
+            on real Linux. No email, no paywall, just the book.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a
+              href="/education/assembly-book"
+              class="px-8 py-4 bg-carthigan-cream text-carthigan-charcoal font-bold uppercase tracking-widest hover:bg-white transition-all hover:scale-105 text-center"
+            >
+              Get the Book
+            </a>
+            <a
+              href="/books/no-nonsense-guide-to-assembly.pdf"
+              target="_blank"
+              rel="noopener"
+              class="px-8 py-4 border border-carthigan-cream/30 text-carthigan-cream font-bold uppercase tracking-widest hover:bg-carthigan-cream/10 transition-colors text-center"
+            >
+              Download PDF
+            </a>
+          </div>
+
+          <p class="text-xs uppercase tracking-widest text-carthigan-cream/40 pt-2">
+            377 pages · 30 chapters · 55+ diagrams · CC BY 4.0
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <a href="/education/assembly-book" class="group block">
+            <img
+              src="/books/cover.png"
+              alt="The cover of The No-Nonsense Guide to Assembly"
+              loading="lazy"
+              class="mx-auto w-auto max-w-xs shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Courses -->
   <section
     id="courses"
